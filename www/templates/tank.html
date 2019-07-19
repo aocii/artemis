@@ -4,12 +4,25 @@
 
 
 
-<ul class="list">
+
+
+ Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br/>
+ Show when checked:
+ <span  ng-if="checked==true" class="animate-if">
+  <input type="checkbox" ng-model="$parent.checked1" ng-init="checked1=true" />
+ </span>
+ <br>
+ <span  ng-if="checked1==true" class="animate-if">
+  test <input type="checkbox" ng-model="checked2" ng-init="checked2=true" />
+ </span>
+
+
+<!--************************************************************-->
 
   <li class="item item-toggle">
      Silindir Havuz 
      <label class="toggle toggle-positive">
-       <input type="checkbox" ng-model="a">
+       <input type="checkbox" ng-model="a" ng-init="a=false">
        <div class="track">
          <div class="handle"></div>
        </div>
@@ -17,18 +30,133 @@
   </li>
 
 
-   <label class="item item-input item-select" ng-if="a==true">
+
+   <label class="item item-input item-select" ng-if="a==true" >
+    <div class="input-label">  
+      Hesap yönteminizi seçiniz. 
+    </div>
+    <select ng-model="$parent.g">
+      <option value=1 >Yüksekliğe bağlı yarıçap</option>
+      <option value=2 >Yarıçapa bağlı yükseklik</option>
+      <option value=3 >Hacim&yüksekliğe bağlı yarıçap</option>
+      <option value=4 >Hacim&yarıçapa bağlı yükseklik</option>
+      <option value=5 >Yarıçap&yüksekliğe bağlı hacim</option>
+    </select>
+  </label>
+</div>
+
+
+
+
+
+<div  ng-if="g == 1 && a == true ">  Yüksekliğe bağlı yarıçap
+buralar dolacak
+*
+*1
+*
+*
+</div>
+
+<div  ng-if="g == 2 && a == true ">  Yüksekliğe bağlı yarıçap
+buralar dolacak
+*
+*2
+*
+*
+</div>
+<div  ng-if="g == 3 && a == true ">  Yüksekliğe bağlı yarıçap
+buralar dolacak
+*
+*
+*3
+*
+</div>
+<div  ng-if="g == 4 && a == true ">  Yüksekliğe bağlı yarıçap
+buralar dolacak
+*
+*
+*4
+*
+</div>
+<div  ng-if="g == 5 && a == true ">  Yüksekliğe bağlı yarıçap
+buralar dolacak
+*
+*5
+*
+*
+</div>
+
+  <li class="item item-toggle">
+     Dörtgen Havuz 
+     <label class="toggle toggle-positive">
+       <input type="checkbox" ng-model="b" ng-init="b=false">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+   <label class="item item-input item-select" ng-if="b==true" >
+    <div class="input-label">
+      Hesap yönteminizi seçiniz. 
+    </div>
+    <select ng-model="$parent.drtgn">
+      <option value = 1 >En&boy&hacime bağlı yükseklik </option>
+      <option value = 2 >En&boy&yüksekliğe bağlı hacim</option>
+      
+    </select>
+  </label>
+
+<div  ng-if="drtgn == 1 && b == true ">  Yüksekliğe bağlı yarıçap
+buralar dolacak
+*
+*1asdasda
+*
+*
+</div>
+
+<div  ng-if="drtgn == 2 && b == true ">  Yüksekliğe bağlı yarıçap
+buralar dolacak
+*
+*1as  5
+*
+</div>
+
+
+
+<!--
+<div ng-if="a==true" >
+   <label class="item item-input item-select" ng-model="$parent.slndr" ng-init="slndr=true">
     <div class="input-label">
       Hesap yönteminizi seçiniz. 
     </div>
     <select>
-      <option>Yüksekliğe bağlı yarıçap</option>
-      <option>Yarıçapa bağlı yükseklik</option>
-      <option>Hacim&yüksekliğe bağlı yarıçap</option>
-      <option>Hacim&yarıçapa bağlı yükseklik</option>
-      <option>Yarıçap&yüksekliğe bağlı hacim</option>
+      <option value="1">Yüksekliğe bağlı yarıçap</option>
+      <option value="2">Yarıçapa bağlı yükseklik</option>
+      <option value="3">Hacim&yüksekliğe bağlı yarıçap</option>
+      <option value="4">Hacim&yarıçapa bağlı yükseklik</option>
+      <option value="5">Yarıçap&yüksekliğe bağlı hacim</option>
     </select>
   </label>
+</div>
+
+
+
+<div ng-if="slndr=='1'"> asd</div>
+
+
+
+
+  <li class="item item-toggle" ng-if="a==true">
+     Yüksekliğe bağlı yarıçap
+     <label class="toggle toggle-positive">
+       <input type="checkbox" ng-model="$parent.c" ng-init="c=false">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
 
 
   <li class="item item-toggle">
@@ -42,20 +170,18 @@
   </li>
 
 
-   <label class="item item-input item-select" ng-if="b==true">
+   <label class="item item-input item-select" ng-if="b==true" ng-model="drtgn">
     <div class="input-label">
       Hesap yönteminizi seçiniz. 
     </div>
     <select>
-      <option>Yüksekliğe bağlı yarıçap</option>
-      <option>Yarıçapa bağlı yükseklik</option>
-      <option>Hacim&yüksekliğe bağlı yarıçap</option>
-      <option>Hacim&yarıçapa bağlı yükseklik</option>
-      <option>Yarıçap&yüksekliğe bağlı hacim</option>
+      <option value ="1" >En&boy&hacime bağlı yükseklik </option>
+      <option value = "2" >En&boy&yüksekliğe bağlı hacim</option>
+      
     </select>
   </label>
 
-</ul>
+
 
 
     
@@ -63,10 +189,13 @@
 
 
 
+<div ng-if="t==true">
+  
+asd
+</div>
 
 
-
-
+-->
 
 
   </ion-content>
