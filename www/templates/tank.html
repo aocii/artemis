@@ -1,0 +1,73 @@
+<ion-view view-title="Standard Tank Hacim Hesabı">
+  <ion-content>
+ <br>   
+
+
+
+<ul class="list">
+
+  <li class="item item-toggle">
+     Silindir Havuz 
+     <label class="toggle toggle-positive">
+       <input type="checkbox" ng-model="a">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+
+   <label class="item item-input item-select" ng-if="a==true">
+    <div class="input-label">
+      Hesap yönteminizi seçiniz. 
+    </div>
+    <select>
+      <option>Yüksekliğe bağlı yarıçap</option>
+      <option>Yarıçapa bağlı yükseklik</option>
+      <option>Hacim&yüksekliğe bağlı yarıçap</option>
+      <option>Hacim&yarıçapa bağlı yükseklik</option>
+      <option>Yarıçap&yüksekliğe bağlı hacim</option>
+    </select>
+  </label>
+
+
+  <li class="item item-toggle">
+     Dörtgen Havuz 
+     <label class="toggle toggle-positive">
+       <input type="checkbox" ng-model="b" >
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+
+   <label class="item item-input item-select" ng-if="b==true">
+    <div class="input-label">
+      Hesap yönteminizi seçiniz. 
+    </div>
+    <select>
+      <option>Yüksekliğe bağlı yarıçap</option>
+      <option>Yarıçapa bağlı yükseklik</option>
+      <option>Hacim&yüksekliğe bağlı yarıçap</option>
+      <option>Hacim&yarıçapa bağlı yükseklik</option>
+      <option>Yarıçap&yüksekliğe bağlı hacim</option>
+    </select>
+  </label>
+
+</ul>
+
+
+    
+<center><button class="button button-positive" ng-click = "showAlertcod()">Tank Tipi ve bekletme süreleri</button></center>
+
+
+
+
+
+
+
+
+
+  </ion-content>
+</ion-view>

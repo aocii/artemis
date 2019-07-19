@@ -1,0 +1,120 @@
+<ion-view view-title="Verim Hesabı"><br><br>
+
+  <ion-content>
+ 
+
+
+
+  Lütfen giderim verimini hesaplamak istediğiniz parametreyi seçiniz. 
+
+
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">KOİ</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Bakır(Cu)</ion-radio> </div>
+</div>
+
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">Nikel(Ni)</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Çinko(Zn)</ion-radio> </div>
+</div>
+
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">Krom(Ce+6)</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Toplam Krom</ion-radio> </div>
+</div>
+ 
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">Demir(Fe)</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Demir(+2)</ion-radio> </div>
+</div>
+
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">Demir(+3)</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Serbest Siyanür(Cn-)</ion-radio> </div>
+</div>
+
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">Sülfür</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Sülfat</ion-radio> </div>
+</div>
+
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">Ortofosfat</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Toplam Fosfat</ion-radio> </div>
+</div>
+
+<div class="row">
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'A'">Amonyum Azot</ion-radio> </div>
+  <div class="col">  <ion-radio ng-model="choice" ng-value="'B'">Toplam Azot</ion-radio> </div>
+</div>
+
+
+		<div class="card">
+		 
+		  <div class="item item-divider">
+		    Kimyasal Artıma :
+		    <div class="row">
+			  <div class="col">Giriş Değeri</div>
+			  <div class="col">Çıkış Değeri</div>
+			  <div class="col"></div>
+			  <div class="col">Verim</div>
+			</div>
+
+
+		    <div class="row">
+			  <div class="col"><input class="input3" type="number" ng-model="a"></div>
+			  <div class="col"><input class="input3" type="number" ng-model="b"></div>
+			  <div class="col"><button class="button button-small button-positive" ng-click="x(a,b)">Hesapla</button></div>
+			  <div class="col">{{x1}}</div>
+			</div>
+		  {{error0}}
+		  </div>
+		 
+		  <div class="item item-divider">
+		    Biyolojik Arıtma :
+		    
+		    <div class="row">
+			  <div class="col">Giriş Değeri</div>
+			  <div class="col">Çıkış Değeri</div>
+			  <div class="col"></div>
+			  <div class="col">Verim</div>
+			</div>
+
+		    <div class="row">
+			  <div class="col"><input class="input3" type="number" ng-model="c"></div>
+			  <div class="col"><input class="input3" type="number" ng-model="d"></div>
+			  <div class="col"><button class="button button-small button-positive" ng-click="y(c,d)">Hesapla</button></div>
+			  <div class="col">{{x2}}</div>
+		  </div>
+		  {{error1}}
+</div>
+		  <div class="item item-divider">
+		    Filtrasyon Sistemi: 
+		    <div class="row">
+			  <div class="col">Giriş Değeri</div>
+			  <div class="col">Çıkış Değeri</div>
+			  <div class="col"></div>
+			  <div class="col">Verim</div>
+			</div>
+
+		    <div class="row">
+			  <div class="col"><input class="input3" type="number" ng-model="e"></div>
+			  <div class="col"><input class="input3" type="number" ng-model="f"></div>
+			  <div class="col"><button class="button button-small button-positive" ng-click="z(e,f)">Hesapla</button></div>
+			  <div class="col">{{x3}}</div>
+
+		  </div>
+		  {{error2}}
+</div></div>
+
+
+
+
+
+
+
+
+
+
+  </ion-content>
+</ion-view>
