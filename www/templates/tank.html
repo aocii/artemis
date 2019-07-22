@@ -1,26 +1,55 @@
 <ion-view view-title="Standard Tank Hacim Hesabı">
-  <ion-content>
- <br>   
+  <ion-content class="animated rollIn">
 
 
+  <li class="item item-toggle">
+     <h3>Havuz / Tank Boyutlandırma   </h3>
+     <label class="toggle toggle-positive">
+       <input type="checkbox" ng-model="havuz" ng-init="havuz=false">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
 
+<div  ng-if="havuz == true"> 
+   
+    <div class="card animated fadeInDown">
+      <div class="item item-text-wrap">
+   
+            <div class="row">
+              <div class="col">Debi (m3/sa)</div>
+              <div class="col">Emniyet Payı (%)</div>
+              <div class="col">Saat</div>
+              <div class="col">Dakika</div>
+              <div class="col"></div>
+            </div>
 
+             <div class="row">
+             <div class="col"><input class="input3" type="number" ng-model="q"></div>
+             <div class="col"><input class="input3" type="number" ng-model="e" ></div>
+             <div class="col"><input class="input3" type="number" ng-model="s" ></div>
+             <div class="col"><input class="input3" type="number" ng-model="d" ></div>
+             <div class="col"><button class="button button-small button-positive" ng-click="hvz(q,e,s,d)">Hesapla</button></div>
+             </div>
 
- Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br/>
- Show when checked:
- <span  ng-if="checked==true" class="animate-if">
-  <input type="checkbox" ng-model="$parent.checked1" ng-init="checked1=true" />
- </span>
- <br>
- <span  ng-if="checked1==true" class="animate-if">
-  test <input type="checkbox" ng-model="checked2" ng-init="checked2=true" />
- </span>
+            <hr>
 
+            <div class="row">
+              <div class="col">hacim = (m3)</div>
+              <div class="col">{{v_hvz}}</div>
+              <div class="col">Emniyetli h.= (m3) </div>
+              <div class="col"> {{e_v_hvz}} </div>
+            </div>
+            
+      </div>
+    </div>
+</div>
 
 <!--************************************************************-->
 
   <li class="item item-toggle">
-     Silindir Havuz 
+     <h3>Silindir Havuz </h3>
      <label class="toggle toggle-positive">
        <input type="checkbox" ng-model="a" ng-init="a=false">
        <div class="track">
@@ -33,14 +62,14 @@
 
    <label class="item item-input item-select" ng-if="a==true" >
     <div class="input-label">  
-      Hesap yönteminizi seçiniz. 
+      <h3>Hesap yönteminizi seçiniz. </h3>
     </div>
     <select ng-model="$parent.g">
       <option value=1 >Yüksekliğe bağlı yarıçap</option>
       <option value=2 >Yarıçapa bağlı yükseklik</option>
-      <option value=3 >Hacim&yüksekliğe bağlı yarıçap</option>
-      <option value=4 >Hacim&yarıçapa bağlı yükseklik</option>
-      <option value=5 >Yarıçap&yüksekliğe bağlı hacim</option>
+      <option value=3 >Yarıçap&yüksekliğe bağlı hacim</option>
+
+
     </select>
   </label>
 </div>
@@ -49,45 +78,105 @@
 
 
 
-<div  ng-if="g == 1 && a == true ">  Yüksekliğe bağlı yarıçap
-buralar dolacak
-*
-*1
-*
-*
+<div  ng-if="g == 1 && a == true "> 
+   
+    <div class="card animated fadeInDown">
+      <div class="item item-text-wrap">
+   
+        <h3>Yüksekliğe bağlı yarıçap</h3>
+            <div class="row">
+              <div class="col">Hacim (m3)</div>
+              <div class="col">Yükseklik (cm)</div>
+              <div class="col"></div>
+            </div>
+
+
+            <div class="row">
+             <div class="col"><input class="input3" type="number" ng-model="v1"></div>
+             <div class="col"><input class="input3" type="number" ng-model="h_cm" ></div>
+             <div class="col"><button class="button button-small button-positive" ng-click="sil(h_cm,v1)">Hesapla</button></div>
+             </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col">yarıçap (m)</div>
+              <div class="col">{{r_m}}</div>
+              <div class="col">yarıçap (cm) </div>
+              <div class="col">{{r_cm}}</div>
+            </div>
+            
+      </div>
+    </div>
 </div>
 
-<div  ng-if="g == 2 && a == true ">  Yüksekliğe bağlı yarıçap
-buralar dolacak
-*
-*2
-*
-*
+
+
+
+<div  ng-if="g == 2 && a == true ">  
+    <div class="card animated fadeInDown">
+      <div class="item item-text-wrap">
+   
+        <h3>Yarıçapa bağlı yükseklik</h3>
+            <div class="row">
+              <div class="col">Hacim (m3)</div>
+              <div class="col">Yarıçap (m)</div>
+              <div class="col"></div>
+            </div>
+
+
+            <div class="row">
+             <div class="col"><input class="input3" type="number" ng-model="v2"></div>
+             <div class="col"><input class="input3" type="number" ng-model="rm" ></div>
+             <div class="col"><button class="button button-small button-positive" ng-click="sil1(v2,rm)">Hesapla</button></div>
+             </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col">yarıçap (m)</div>
+              <div class="col">{{h_m}}</div>
+              <div class="col">yarıçap (cm) </div>
+              <div class="col">{{h_cm}}</div>
+            </div>
+            
+      </div>
+    </div>
 </div>
-<div  ng-if="g == 3 && a == true ">  Yüksekliğe bağlı yarıçap
-buralar dolacak
-*
-*
-*3
-*
+
+
+<div  ng-if="g == 3 && a == true " >  
+    <div class="card animated fadeInDown">
+      <div class="item item-text-wrap">
+   
+        <h3>Yarıçap&yüksekliğe bağlı hacim</h3>
+            <div class="row">
+              <div class="col">Yarıçap (m)</div>
+              <div class="col">Yükseklik (m)</div>
+              <div class="col"></div>
+            </div>
+
+
+            <div class="row">
+             <div class="col"><input class="input3" type="number" ng-model="r1"></div>
+             <div class="col"><input class="input3" type="number" ng-model="h2"></div>
+             <div class="col"><button class="button button-small button-positive" ng-click="sil2(r1,h2)">Hesapla</button></div>
+             </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col">Hacim (m3)</div>
+              <div class="col">{{v_m3}}</div>
+            </div>
+            
+      </div>
+    </div>
 </div>
-<div  ng-if="g == 4 && a == true ">  Yüksekliğe bağlı yarıçap
-buralar dolacak
-*
-*
-*4
-*
-</div>
-<div  ng-if="g == 5 && a == true ">  Yüksekliğe bağlı yarıçap
-buralar dolacak
-*
-*5
-*
-*
-</div>
+
 
   <li class="item item-toggle">
-     Dörtgen Havuz 
+     <h3>Dörtgen Havuz </h3>
      <label class="toggle toggle-positive">
        <input type="checkbox" ng-model="b" ng-init="b=false">
        <div class="track">
@@ -98,7 +187,7 @@ buralar dolacak
 
    <label class="item item-input item-select" ng-if="b==true" >
     <div class="input-label">
-      Hesap yönteminizi seçiniz. 
+    <h3>Hesap yönteminizi seçiniz. </h3>
     </div>
     <select ng-model="$parent.drtgn">
       <option value = 1 >En&boy&hacime bağlı yükseklik </option>
@@ -107,95 +196,77 @@ buralar dolacak
     </select>
   </label>
 
-<div  ng-if="drtgn == 1 && b == true ">  Yüksekliğe bağlı yarıçap
-buralar dolacak
-*
-*1asdasda
-*
-*
-</div>
+<div  ng-if="drtgn == 1 && b == true ">
 
-<div  ng-if="drtgn == 2 && b == true ">  Yüksekliğe bağlı yarıçap
-buralar dolacak
-*
-*1as  5
-*
-</div>
+    <div class="card animated fadeInDown">
+      <div class="item item-text-wrap">
+   
+        <h3>En&boy&hacime bağlı yükseklik </h3>
+            <div class="row">
+              <div class="col">Hacim (m3)</div>
+              <div class="col">En (m)</div>
+              <div class="col">Boy (m)</div>
+              <div class="col"></div>
+            </div>
 
 
+            <div class="row">
+             <div class="col"><input class="input3" type="number" ng-model="hacim"></div>
+            <div class="col"><input class="input3" type="number" ng-model="en"></div>
+             <div class="col"><input class="input3" type="number" ng-model="boy"></div>
+             <div class="col"><button class="button button-small button-positive" ng-click="drtg(hacim,en,boy)">Hesapla</button></div>
+             </div>
 
-<!--
-<div ng-if="a==true" >
-   <label class="item item-input item-select" ng-model="$parent.slndr" ng-init="slndr=true">
-    <div class="input-label">
-      Hesap yönteminizi seçiniz. 
+            <hr>
+
+            <div class="row">
+              <div class="col">Yükseklik (m)</div>
+              <div class="col">{{drtgn_h}}</div>
+            </div>
+            
+      </div>
     </div>
-    <select>
-      <option value="1">Yüksekliğe bağlı yarıçap</option>
-      <option value="2">Yarıçapa bağlı yükseklik</option>
-      <option value="3">Hacim&yüksekliğe bağlı yarıçap</option>
-      <option value="4">Hacim&yarıçapa bağlı yükseklik</option>
-      <option value="5">Yarıçap&yüksekliğe bağlı hacim</option>
-    </select>
-  </label>
+
 </div>
 
+<div  ng-if="drtgn == 2 && b == true ">  
+
+    <div class="card animated fadeInDown">
+      <div class="item item-text-wrap">
+   
+        <h3>En&boy&yüksekliğe bağlı hacim </h3>
+            <div class="row">
+              <div class="col">En (m)</div>
+              <div class="col">Boy (m)</div>
+              <div class="col">Yükseklik (m)</div>
+              <div class="col"></div>
+            </div>
 
 
-<div ng-if="slndr=='1'"> asd</div>
+            <div class="row">
+             <div class="col"><input class="input3" type="number" ng-model="en1"></div>
+            <div class="col"><input class="input3" type="number" ng-model="boy1"></div>
+             <div class="col"><input class="input3" type="number" ng-model="d_h"></div>
+             <div class="col"><button class="button button-small button-positive" ng-click="dortgen1(en1,boy1,d_h)">Hesapla</button></div>
+             </div>
 
+            <hr>
 
-
-
-  <li class="item item-toggle" ng-if="a==true">
-     Yüksekliğe bağlı yarıçap
-     <label class="toggle toggle-positive">
-       <input type="checkbox" ng-model="$parent.c" ng-init="c=false">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-  </li>
-
-
-
-  <li class="item item-toggle">
-     Dörtgen Havuz 
-     <label class="toggle toggle-positive">
-       <input type="checkbox" ng-model="b" >
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-  </li>
-
-
-   <label class="item item-input item-select" ng-if="b==true" ng-model="drtgn">
-    <div class="input-label">
-      Hesap yönteminizi seçiniz. 
+            <div class="row">
+              <div class="col">Hacim (m3)</div>
+              <div class="col">{{drtgn_v}}</div>
+            </div>
+            
+      </div>
     </div>
-    <select>
-      <option value ="1" >En&boy&hacime bağlı yükseklik </option>
-      <option value = "2" >En&boy&yüksekliğe bağlı hacim</option>
-      
-    </select>
-  </label>
-
-
-
-
-    
-<center><button class="button button-positive" ng-click = "showAlertcod()">Tank Tipi ve bekletme süreleri</button></center>
-
-
-
-<div ng-if="t==true">
-  
-asd
 </div>
 
 
--->
+<br><center><button class="button button-positive animated rollIn" ng-click = "showAlertcod()">Tank Tipi ve bekletme süreleri</button></center></br>
+
+
+
+
 
 
   </ion-content>

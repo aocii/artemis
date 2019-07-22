@@ -28,6 +28,36 @@ $scope.showAlertcod = function() {
    })
  }
 
+$scope.sil = function (h1,v1){
+  $scope.r_m = Number((Math.pow((v1/3.1416)*(h1/100),0.5))*10).toFixed(2)
+  $scope.r_cm = Number($scope.r_m*100 ).toFixed(2)
+}
+$scope.sil1 = function(v2,rm){
+  $scope.h6 = v2/(rm*rm*3.1416)
+  $scope.h_m = Number($scope.h6).toFixed(2)
+  $scope.h_cm = Number($scope.h6*100).toFixed(2)
+}
+$scope.sil2 = function(r1,h2){
+  $scope.v_m3 = Number(3.1416*r1*r1*h2).toFixed(2)
+}
+$scope.drtg = function(v,en,boy){
+  $scope.drtgn_h = Number(v/(en*boy)).toFixed(2) 
+}
+$scope.dortgen1 = function(en,boy,d_h){
+  $scope.drtgn_v = Number(d_h*en*boy).toFixed(2) 
+} 
+
+$scope.hvz = function(q,e,s,d){
+  if(d != null){
+    $scope.v_hvz = Number(q*s+(q*(d/60))).toFixed(2)  
+    $scope.e_v_hvz = Number($scope.v_hvz*((e/100)+1)).toFixed(2)
+  }else{ 
+    $scope.v_hvz = Number(q*s).toFixed(2)  
+    $scope.e_v_hvz = Number($scope.v_hvz*((e/100)+1)).toFixed(2) }
+
+
+}
+
 $scope.x = function (a,b){
   xi = Number(((a-b)/a)*100).toFixed(2)
 
@@ -65,17 +95,7 @@ if(xiii >100 || xiii < 0 ) {
     $scope.error2 = ""
 }
 
-
-
-
-
-
-
-
-
-}
-})
-.controller('PlaylistsCtrl', function($scope) {
+}}).controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Tesis Verim', adres: 'verim', id: 0 },
     { title: 'Standart Tank Hacim Hesabı ', adres: 'tank', id: 1 },
