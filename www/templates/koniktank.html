@@ -1,0 +1,98 @@
+<ion-view view-title="Konik Tank">
+  <ion-content class="animated rollIn">
+    
+
+
+<li class="item item-toggle">
+     <h3>Konik Havuz / Tank Boyutlandırma   </h3>
+     <label class="toggle toggle-positive">
+       <input type="checkbox" ng-model="k_havuz" ng-init="havuz=false">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+</li>
+
+<div  ng-if="k_havuz == true"> 
+   
+    <div class="card animated fadeInDown ">
+      <div class="item item-text-wrap carddikeybosluk">
+   
+<div class="col col1"></div>
+
+   
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Debi</h4> </div>
+              <div class="col ">(m<sup>3</sup>/sa)</div>
+              <div class="col"><input class="input3" type="number" ng-model="debi_k"></div>
+            </div>
+            <hr>
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Bekleme Süresi</h4></div>
+              <div class="col">Saat</div>
+              <div class="col"><input class="input3" type="number" ng-model="t_sa"></div>
+            </div>
+            <hr>
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Bekleme Süresi</h4></div>
+              <div class="col">Dakika</div>
+              <div class="col"><input class="input3" type="number" ng-model="t_dk"></div>
+            </div>
+            <hr>
+            <div class="row row1 ">
+              <div class="col"><h4 class="d_ort">Konik Oranı</h4></div>
+              <div class="col">Yüzde (%)</div>
+              <div class="col"><input class="input3" type="number" ng-model="k_oran"></div>
+            </div>
+            <hr>
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Emniyet Payı</h4></div>
+              <div class="col">Yüzde (%)</div>
+              <div class="col"><input class="input3" type="number" ng-model="emniyet_k"></div>
+            </div>
+           
+
+<button class="button button-full button-positive" ng-click="konikhacim(debi_k,t_sa,t_dk,k_oran,emniyet_k)">
+Hesapla
+</button>
+
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Hacim </h4></div>
+              <div class="col">(m<sup>3</sup>/sa)</div>
+              <div class="col">{{c_v}} </div>
+            </div>
+            <hr>
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Emniyetli hacim</h4></div>
+              <div class="col">(m<sup>3</sup>/sa)</div>
+              <div class="col">{{c_e_v}}</div>
+            </div>
+            <hr>
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Silindir Hacim</h4></div>
+              <div class="col">(m<sup>3</sup>/sa)</div>
+              <div class="col">{{c_s_v}}</div>
+            </div>
+            <hr>
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Konik Hacim</h4></div>
+              <div class="col">(m<sup>3</sup>/sa)</div>
+              <div class="col">{{c_k_v}}</div>
+            </div> 
+            <hr>           
+      	</div>
+    </div>
+</div>
+
+<!--
+<button class="button button-dark" ng-click="deneme()">
+  button-dark
+</button>
+
+{{sonuc}} -->
+
+
+
+
+  </ion-content>
+</ion-view>

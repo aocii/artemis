@@ -77,6 +77,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+      .state('app.koniktank', {
+      url: '/koniktank',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/koniktank.html'
+        }
+      }
+    })
     .state('app.playlists', {
       url: '/playlists',
       views: {

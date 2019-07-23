@@ -57,6 +57,13 @@ $scope.hvz = function(q,e,s,d){
 
 
 }
+$scope.konikhacim = function(debi_k,t_sa,t_dk,k_oran,emniyet_k){
+  if(t_dk == null ){t_dk = 0}
+    $scope.c_v = Number(debi_k*t_sa+debi_k*(t_dk/60)).toFixed(2) 
+    $scope.c_e_v = Number($scope.c_v*(1+emniyet_k/100)).toFixed(2)
+    $scope.c_s_v = Number($scope.c_e_v * ((100-k_oran)/100)).toFixed(2)
+    $scope.c_k_v = Number($scope.c_e_v *(k_oran/100)).toFixed(2) 
+}
 
 $scope.x = function (a,b){
   xi = Number(((a-b)/a)*100).toFixed(2)
@@ -68,6 +75,21 @@ $scope.x = function (a,b){
       $scope.x1 = xi
       $scope.error0 = ""
   }
+
+}
+
+$scope.deneme = function(){
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     
+      $scope.sonuc = this.responseText
+    }
+
+  };
+  xhttp.open("GET", "http://192.168.10.198:3002/", true);
+  xhttp.send();
 
 }
 
@@ -95,11 +117,12 @@ if(xiii >100 || xiii < 0 ) {
     $scope.error2 = ""
 }
 
+
 }}).controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Tesis Verim', adres: 'verim', id: 0 },
     { title: 'Standart Tank Hacim Hesabı ', adres: 'tank', id: 1 },
-    { title: 'Konik Tabanlı Tank Hacim Hesabı',  id: 2 },
+    { title: 'Konik Tabanlı Tank Hacim Hesabı', adres:'koniktank', id: 2 },
     { title: 'Boru Delik Çap&Hız Hesabı', id: 3 },
    { title: 'Biz Kimiz?',adres: 'tanitim', id: 4 }
   ];
