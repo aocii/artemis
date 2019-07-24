@@ -9,7 +9,7 @@
        <input type="checkbox" ng-model="k_havuz" ng-init="havuz=false">
        <div class="track">
          <div class="handle"></div>
-       </div>
+        </div>
      </label>
 </li>
 
@@ -17,6 +17,9 @@
    
     <div class="card animated fadeInDown ">
       <div class="item item-text-wrap carddikeybosluk">
+          <div class="bar bar-header bar-balanced">
+              <h1 class="title">Konik Havuz / Tank Boyutlandırma </h1>
+        </div><br><br><br>
    
 <div class="col col1"></div>
 
@@ -84,6 +87,8 @@ Hesapla
     </div>
 </div>
 
+
+
 <!--
 <button class="button button-dark" ng-click="deneme()">
   button-dark
@@ -91,6 +96,183 @@ Hesapla
 
 {{sonuc}} -->
 
+
+<li class="item item-toggle">
+  <h3>Konik Tabanlı Silindir Havuz </h3>
+  <label class="toggle toggle-positive">
+    <input type="checkbox" ng-model="a" ng-init="a=false">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+  </label>
+</li>
+
+
+
+<label class="item item-input item-select" ng-if="a==true" >
+  <div class="input-label">  
+    <h3>Hesap yönteminizi seçiniz. </h3>
+  </div>
+  <select ng-model="$parent.g">
+    <option value=1 >Silindir taban konik hacim</option>
+    <option value=2 >Hacim & Yarıçapa bağlı yükseklik</option>
+    <option value=3 >Hacim & Yükseklik bağlı yarıçap</option>
+    <option value=4 >Hacim & Yarıçap bağlı yükseklik</option>
+    <option value=5 >Yarıçap & Yükseklik bağlı hacim</option>
+  </select>
+</label>
+
+
+
+
+
+
+<div  ng-if="g == 1 && a == true "> 
+
+ <div class="card animated flipInX">
+
+  <div class="item item-text-wrap carddikeybosluk">
+        
+    <div class="bar bar-header bar-balanced">
+          <h1 class="title">Silindir tabanlı konik hacim </h1>
+    </div><br><br><br>
+
+      
+   
+    <div class="col col1"></div>
+    
+       
+                <div class="row row1">
+                  <div class="col"><h4 class="d_ort">Silinidir hacim</h4> </div>
+                  <div class="col ">(m<sup>3</sup>/sa)</div>
+                  <div class="col"> {{c_s_v}}</div>
+                </div>
+                <hr>
+                  <div class="row row1">
+                    <div class="col"><h4 class="d_ort">Konik hacim</h4></div>
+                    <div class="col">(m<sup>3</sup>/sa)</div>
+                    <div class="col">{{c_k_v}}</div>
+                  </div>
+                  <hr>
+                <div class="row row1">
+                  <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
+                  <div class="col">m</div>
+                  <div class="col"><input class="input3" type="number" ng-model="s_h"></div>
+                </div>
+                <hr>
+                
+                
+               
+    
+    <button class="button button-full button-positive" ng-click="konik_sil_hacim(s_h)">
+    Hesapla
+    </button>
+    
+                <div class="row row1">
+                  <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
+                  <div class="col">m</div>
+                  <div class="col">{{r_m}} </div>
+                </div>
+                <hr>
+                <div class="row row1">
+                  <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
+                  <div class="col">cm</div>
+                  <div class="col">{{r_cm}}</div>
+                </div>
+                <hr>
+                <div class="row row1">
+                  <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
+                  <div class="col">m</div>
+                  <div class="col">{{konik_h}}</div>
+                </div>
+                <hr>
+                <div class="row row1">
+                  <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                  <div class="col">derece</div>
+                  <div class="col">{{konik_d}}</div>
+                </div> 
+                <hr>           
+            </div>
+        </div>
+    </div>
+
+ </div>
+</div>
+
+
+
+<div  ng-if="g == 2 && a == true "> 
+
+    <div class="card animated flipInX">
+   
+     <div class="item item-text-wrap carddikeybosluk">
+           
+       <div class="bar bar-header bar-balanced">
+             <h1 class="title">Hacim & Yarıçapa bağlı yükseklik</h1>
+       </div><br><br><br>
+   
+         
+      
+       <div class="col col1"></div>
+       
+          
+                   <div class="row row1">
+                     <div class="col"><h4 class="d_ort">Silinidir hacim</h4> </div>
+                     <div class="col ">(m<sup>3</sup>/sa)</div>
+                     <div class="col"> {{c_s_v}}</div>
+                   </div>
+                   <hr>
+                     <div class="row row1">
+                       <div class="col"><h4 class="d_ort">Konik hacim</h4></div>
+                       <div class="col">(m<sup>3</sup>/sa)</div>
+                       <div class="col">{{c_k_v}}</div>
+                     </div>
+                     <hr>
+                   <div class="row row1">
+                     <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
+                     <div class="col">m</div>
+                     <div class="col"><input class="input3" type="number" ng-model="r"></div>
+                   </div>
+                   <hr>
+                   
+                   
+                  
+       
+       <button class="button button-full button-positive" ng-click="konik_sil_yuk(r)">
+       Hesapla
+       </button>
+       
+                   <div class="row row1">
+                     <div class="col"><h4 class="d_ort">silindir yükseklik</h4></div>
+                     <div class="col">m</div>
+                     <div class="col">{{k_s_h_m}} </div>
+                   </div>
+                   <hr>
+                   <div class="row row1">
+                     <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
+                     <div class="col">cm</div>
+                     <div class="col">{{k_s_h_cm}}</div>
+                   </div>
+                   <hr>
+                   <div class="row row1">
+                     <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
+                     <div class="col">m</div>
+                     <div class="col">{{konik_h_s}}</div>
+                   </div>
+                   <hr>
+                   <div class="row row1">
+                     <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                     <div class="col">derece</div>
+                     <div class="col">{{konik_d_s}}</div>
+                   </div> 
+                   <hr>           
+               </div>
+           </div>
+       </div>
+   
+    </div>
+   </div>
+   
 
 
 

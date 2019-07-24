@@ -59,10 +59,14 @@ $scope.hvz = function(q,e,s,d){
 }
 $scope.konikhacim = function(debi_k,t_sa,t_dk,k_oran,emniyet_k){
   if(t_dk == null ){t_dk = 0}
-    $scope.c_v = Number(debi_k*t_sa+debi_k*(t_dk/60)).toFixed(2) 
-    $scope.c_e_v = Number($scope.c_v*(1+emniyet_k/100)).toFixed(2)
-    $scope.c_s_v = Number($scope.c_e_v * ((100-k_oran)/100)).toFixed(2)
-    $scope.c_k_v = Number($scope.c_e_v *(k_oran/100)).toFixed(2) 
+    $scope.c_v1= debi_k*t_sa+debi_k*(t_dk/60)
+    $scope.c_v = Number($scope.c_v1).toFixed(2) 
+    $scope.c_e_v1 = $scope.c_v*(1+emniyet_k/100)
+    $scope.c_e_v = Number($scope.c_e_v1).toFixed(2)
+    $scope.c_s_v1 = $scope.c_e_v * ((100-k_oran)/100)
+    $scope.c_s_v = Number($scope.c_s_v1).toFixed(2)
+    $scope.c_k_v1= $scope.c_e_v *(k_oran/100)
+    $scope.c_k_v = Number($scope.c_k_v1).toFixed(2) 
 }
 
 $scope.x = function (a,b){
@@ -78,20 +82,33 @@ $scope.x = function (a,b){
 
 }
 
-$scope.deneme = function(){
-
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     
-      $scope.sonuc = this.responseText
-    }
-
-  };
-  xhttp.open("GET", "http://192.168.10.198:3002/", true);
-  xhttp.send();
-
+$scope.konik_sil_hacim = function(s_h) {
+  $scope.r_m1 = Math.pow(($scope.c_s_v1/(Math.PI*s_h)),0.5)
+  $scope.r_m = Number($scope.r_m1).toFixed(2)
+  $scope.r_cm = Number($scope.r_m1*100).toFixed(2)
+  $scope.konik_h =Number(($scope.c_k_v1*3)/(3.1416*$scope.r_m1*$scope.r_m1)).toFixed(2)
+  $scope.konik_d = Number(Math.atan($scope.konik_h/$scope.r_m1)*57.3).toFixed(2)
 }
+$scope.konik_sil_yuk = function(r){
+  $scope.k_s_h_m1 = $scope.c_s_v1/(Math.PI*r*r)
+  $scope.k_s_h_m = Number($scope.k_s_h_m1).toFixed(2)
+  $scope.k_s_h_cm = Number($scope.k_s_h_m1*100).toFixed(2)
+  $scope.konik_h_s1 = ($scope.c_k_v1*3)/(3.1416*r*r)
+  $scope.konik_h_s = Number(($scope.c_k_v1*3)/(3.1416*r*r)).toFixed(2)
+  $scope.konik_d_s = Number(Math.atan($scope.konik_h_s1/r)*57.3).toFixed(2)
+}
+
+//$scope.deneme = function(){
+
+  //var xhttp = new XMLHttpRequest();
+  //xhttp.onreadystatechange = function() {
+    //if (this.readyState == 4 && this.status == 200) {     
+      //$scope.sonuc = this.responseText
+    //}
+  //};
+  //xhttp.open("GET", "http://192.168.10.198:3002/", true);
+  //xhttp.send();
+//}
 
 $scope.y = function (c,d) {
   xii = Number(((c-d)/c)*100).toFixed(2)
@@ -130,3 +147,4 @@ if(xiii >100 || xiii < 0 ) {
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
+
