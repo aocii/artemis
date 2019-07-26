@@ -58,7 +58,16 @@ $scope.hvz = function(q,e,s,d){
 
 }
 $scope.konikhacim = function(debi_k,t_sa,t_dk,k_oran,emniyet_k){
-  if(t_dk == null ){t_dk = 0}
+  if(k_oran>100 || k_oran<0 ||emniyet_k>100 || emniyet_k< 0)
+  {$scope.error5 = "Oran 100'den büyük, 0'dan küçük olamaz"
+   $scope.c_v = "*"
+   $scope.c_e_v= "*"
+   $scope.c_s_v= "*"
+   $scope.c_k_v = "*"
+}
+  
+  else{
+    if(t_dk == null ){t_dk = 0}
     $scope.c_v1= debi_k*t_sa+debi_k*(t_dk/60)
     $scope.c_v = Number($scope.c_v1).toFixed(2) 
     $scope.c_e_v1 = $scope.c_v*(1+emniyet_k/100)
@@ -66,7 +75,7 @@ $scope.konikhacim = function(debi_k,t_sa,t_dk,k_oran,emniyet_k){
     $scope.c_s_v1 = $scope.c_e_v * ((100-k_oran)/100)
     $scope.c_s_v = Number($scope.c_s_v1).toFixed(2)
     $scope.c_k_v1= $scope.c_e_v *(k_oran/100)
-    $scope.c_k_v = Number($scope.c_k_v1).toFixed(2) 
+    $scope.c_k_v = Number($scope.c_k_v1).toFixed(2) }
 }
 
 $scope.x = function (a,b){
@@ -96,6 +105,69 @@ $scope.konik_sil_yuk = function(r){
   $scope.konik_h_s1 = ($scope.c_k_v1*3)/(3.1416*r*r)
   $scope.konik_h_s = Number(($scope.c_k_v1*3)/(3.1416*r*r)).toFixed(2)
   $scope.konik_d_s = Number(Math.atan($scope.konik_h_s1/r)*57.3).toFixed(2)
+}
+$scope.hacim_yuk_r = function (toplam_hacim,konik_oran,silindir_h) {
+  if (konik_oran > 100 || konik_oran < 0)
+  {$scope.error4 = "Oran 100'den büyük, 0'dan küçük olamaz"
+  $scope.sil_v="*"
+  $scope.r_m1="*"
+  $scope.sil_h ="*"
+  $scope.r_cm1="*"
+  $scope.konik_v="*"
+  $scope.konik_h1="*"
+  $scope.konik_aci="*"
+}
+   else{  $scope.sil_h1 = silindir_h*100
+    $scope.sil_h = Number($scope.sil_h1).toFixed(2)
+    $scope.sil_v1 = toplam_hacim*((100-konik_oran)/100)
+    $scope.sil_v = Number($scope.sil_v1).toFixed(2)
+    $scope.r_m11 = Math.pow(($scope.sil_v1/(Math.PI*silindir_h)),0.5)
+    $scope.r_m1 = Number($scope.r_m11).toFixed(2)
+    $scope.r_cm1 = Number($scope.r_m11*100).toFixed(2)
+    $scope.konik_v1 = toplam_hacim*(konik_oran/100)
+    $scope.konik_v = Number($scope.konik_v1).toFixed(2)
+    $scope.konik_h11 = 3*$scope.konik_v1/(Math.PI*Math.pow($scope.r_m11,2))
+    $scope.konik_h1 = Number($scope.konik_h11).toFixed(2)
+    $scope.konik_aci = Number(Math.atan($scope.konik_h11/$scope.r_m11)*57.3).toFixed(2)}
+
+}
+
+$scope.hacim_yuk_r = function(toplam_hacim1,konik_oran1,yaricap){
+  if (konik_oran1 > 100 || konik_oran1 < 0)
+  {$scope.error6 = "Oran 100'den büyük, 0'dan küçük olamaz"
+  $scope.sil_hacim="*"
+  $scope.rcm="*"
+  $scope.s_yuk_m ="*"
+  $scope.s_yuk_cm="*"
+  $scope.konik_hacim="*"
+  $scope.konik_yuk="*"
+  $scope.koniklik_aci="*"
+}
+   else{  $scope.rcm = yaricap*100
+    $scope.sil_hacim1 = toplam_hacim1*((100-konik_oran1)/100)
+    $scope.sil_hcm = Number($scope.sil_hacim1).toFixed(2)
+    $scope.s_yuk_m1 = $scope.sil_hacim1/(Math.PI*yaricap*yaricap)
+    $scope.s_yuk_m = Number($scope.s_yuk_m1).toFixed(2)
+    $scope.s_yuk_cm = Number($scope.s_yuk_m1*100).toFixed(2)
+    $scope.konik_hacim1 = toplam_hacim1*(konik_oran1/100)
+    $scope.konik_hacim = Number($scope.konik_hacim1).toFixed(2)
+    $scope.konik_yuk1 = 3*$scope.konik_hacim1/(Math.PI*yaricap*yaricap)
+    $scope.konik_yuk = Number($scope.konik_yuk1).toFixed(2)
+    $scope.koniklik_aci =  Number(Math.atan($scope.konik_yuk1/yaricap)*57.3).toFixed(2)}
+    
+
+}
+$scope.r_h_hacim = function(r_5,s_h_5,k_h_5){
+  $scope.rcm_5 = r_5 *100
+  $scope.s_yuk_cm_5 = s_h_5 *100 
+  $scope.k_yuk_cm_5 = k_h_5 *100
+  $scope.s_v_51 = Math.PI*r_5*r_5*s_h_5
+  $scope.s_v_5 = Number($scope.s_v_51).toFixed(2)
+  $scope.k_v_51 = Math.PI*r_5*r_5*(k_h_5/3)
+  $scope.k_v_5 = Number($scope.k_v_51).toFixed(2)
+  $scope.toplam_v_5 =Number($scope.s_v_51 + $scope.k_v_51).toFixed(2)
+  $scope.k_aci_5 = Number(Math.atan(k_h_5/r_5)*57.3).toFixed(2)
+
 }
 
 //$scope.deneme = function(){
