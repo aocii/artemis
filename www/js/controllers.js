@@ -169,6 +169,86 @@ $scope.r_h_hacim = function(r_5,s_h_5,k_h_5){
   $scope.k_aci_5 = Number(Math.atan(k_h_5/r_5)*57.3).toFixed(2)
 
 }
+$scope.konik_kare_hacim = function (k_h){
+  $scope.kare_h_cm = k_h*100
+  $scope.kenar_m1 = Math.pow(($scope.c_s_v1/k_h),0.5)
+  $scope.kenar_m = Number($scope.kenar_m1).toFixed(2)
+  $scope.kenar_cm = Number($scope.kenar_m1*100).toFixed(2)
+  $scope.prizma_h1 = 3*$scope.c_k_v1/($scope.kenar_m1*$scope.kenar_m1)
+  $scope.prizma_h = Number($scope.prizma_h1).toFixed(2)
+  $scope.kare_konik_aci = Number((Math.atan($scope.prizma_h1/($scope.kenar_m1/2))*57.3)).toFixed(2)
+
+  }
+$scope.konik_kare_hacim2= function(k_k_l){
+  $scope.kare_l_cm = k_k_l*100
+  $scope.kare_h_m21 = $scope.c_s_v1/(k_k_l*k_k_l)
+  $scope.kare_h_m2 = Number($scope.kare_h_m21).toFixed(2)
+  $scope.kare_h_cm2 = Number($scope.kare_h_m21*100).toFixed(2)
+  $scope.prizma_h21 = 3*$scope.c_k_v1 /(k_k_l*k_k_l)
+  $scope.prizma_h2 = Number($scope.prizma_h21).toFixed(2)
+  $scope.kare_konik_aci2 = Number((Math.atan($scope.prizma_h21/(k_k_l/2))*57.3)).toFixed(2)
+}
+$scope.konik_kare_hacim3=function (tplm_v,knk_orn,h_kare){
+  if (knk_orn > 100 || knk_orn < 0){
+    $scope.error7 = "Oran 100'den büyük, 0'dan küçük olamaz"
+    $scope.kare_v = "*"
+    $scope.yuks_kare_cm = "*"
+    $scope.kare_h_mt = "*"
+    $scope.kare_h_cmt = "*"
+    $scope.prizma_v = "*"
+    $scope.h_prizma = "*"
+    $scope.aci_kare_konik = "*"
+
+}
+  else{
+    kare_v1 =tplm_v*(100-knk_orn)/100
+    $scope.kare_v = Number(kare_v1).toFixed(2) 
+    $scope.yuks_kare_cm = h_kare*100
+    kare_h_mt = Math.pow(kare_v1/h_kare,0.5)
+    $scope.kare_h_mt = Number(kare_h_mt).toFixed(2)
+    $scope.kare_h_cmt = Number(kare_h_mt*100).toFixed(2)
+    prizma_v = tplm_v * (knk_orn/100)
+    $scope.prizma_v = Number(prizma_v).toFixed(2)
+    h_prizma = 3 * prizma_v/(kare_h_mt*kare_h_mt)
+    $scope.h_prizma = Number(h_prizma).toFixed(2)
+    $scope.aci_kare_konik = Number((Math.atan(h_prizma/(kare_h_mt/2)))*57.3).toFixed(2)
+
+  }
+
+}
+$scope.konik_kare_hacim4=function (tplm_v1,knk_orn1,l_kenar){
+  if (knk_orn1 > 100 || knk_orn1 < 0){
+    $scope.error8 = "Oran 100'den büyük, 0'dan küçük olamaz"
+    $scope.v_kare = "*"
+    $scope.kenar_l_cm = "*"
+    $scope.h_kare_m = "*"
+    $scope.h_kare_cm = "*"
+    $scope.v_przma = "*"
+    $scope.h_przma = "*"
+    $scope.aci_kare_knk = "*"
+
+}
+  else{
+    v_kare = tplm_v1*((100-knk_orn1)/100)
+    $scope.v_kare = Number(v_kare).toFixed(2)
+    $scope.kenar_l_cm = l_kenar*100
+    h_kare_m = v_kare/(l_kenar*l_kenar)
+    $scope.h_kare_m = Number(h_kare_m).toFixed(2)
+    $scope.h_kare_cm = Number(h_kare_m*100).toFixed(2)
+    v_przma = tplm_v1*knk_orn1/100
+    $scope.v_przma = Number(v_przma).toFixed(2)
+    h_przma = 3*v_przma/(l_kenar*l_kenar)
+    $scope.h_przma = Number(h_przma).toFixed(2)
+    $scope.aci_kare_knk = Number((Math.atan(h_przma/(l_kenar/2)))*57.3).toFixed(2)
+
+
+
+  }
+
+}
+
+
+
 
 //$scope.deneme = function(){
 

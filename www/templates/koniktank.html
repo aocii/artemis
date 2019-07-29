@@ -98,7 +98,7 @@ Hesapla
 
 
 <li class="item item-toggle">
-  <h3>Konik Tabanlı Silindir Havuz </h3>
+  <h3>Silindir Tabanlı Konik Havuz </h3>
   <label class="toggle toggle-positive">
     <input type="checkbox" ng-model="a" ng-init="a=false">
       <div class="track">
@@ -553,18 +553,439 @@ Hesapla
 
 
 
-       <label class="item item-input item-select" ng-if="b==true" >
+       <label ng-if="b==true"  class="item item-input item-select" >
           <div class="input-label">  
             <h3>Hesap yönteminizi seçiniz. </h3>
           </div>
           <select ng-model="$parent.g1">
-            <option value=1 >Silindir taban konik hacim</option>
-            <option value=2 >Hacim & Yarıçapa bağlı yükseklik</option>
-            <option value=3 >Hacim & Yükseklik bağlı yarıçap</option>
-            <option value=4 >Hacim & Yarıçap bağlı yükseklik</option>
-            <option value=5 >Yarıçap & Yükseklik bağlı hacim</option>
+            <option value=1 >Hesap Hacim & Yüksekliğe bağlı kenar boyu </option>
+            <option value=2 >Hesap Hacim & Kenar boyuna bağlı yükseklik</option>
+            <option value=3 >Hacim & Yüksekliğe bağlı kenar boyu </option>
+            <option value=4 >Hacim & Kenar Boyuna bağlı yükseklik</option>
+            <option value=5 >Kenar Boyu & Yüksekliğe bağlı hacim</option>
           </select>
         </label>       
+
+
+        <div  ng-if="g1 == 1 && b == true "> 
+
+          <div class="card animated flipInX">
+         
+           <div class="item item-text-wrap carddikeybosluk">
+                 
+             <div class="bar bar-header bar-balanced">
+                   <h1 class="title">Hesap Hacim & Yüksekliğe bağlı kenar boyu </h1>
+             </div><br><br><br>
+         
+               
+            
+             <div class="col col1"></div>
+             
+                
+                         <div class="row row1">
+                           <div class="col"><h4 class="d_ort">Kare hacim</h4> </div>
+                           <div class="col ">(m<sup>3</sup>/sa)</div>
+                           <div class="col"> {{c_s_v}}</div>
+                         </div>
+                         <hr>
+                           <div class="row row1">
+                             <div class="col"><h4 class="d_ort">Prizma hacim</h4></div>
+                             <div class="col">(m<sup>3</sup>/sa)</div>
+                             <div class="col">{{c_k_v}}</div>
+                           </div>
+                           <hr>
+                         <div class="row row1">
+                           <div class="col"><h4 class="d_ort">Kare yükseklik</h4></div>
+                           <div class="col">m</div>
+                           <div class="col"><input class="input3" type="number" ng-model="k_h"></div>
+                         </div>
+                         <hr>
+                         
+                         
+                        
+             
+             <button class="button button-full button-positive" ng-click="konik_kare_hacim(k_h)">
+             Hesapla
+             </button>
+             
+                         <div class="row row1">
+                           <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                           <div class="col">cm</div>
+                           <div class="col">{{kare_h_cm}} </div>
+                         </div>
+                         <hr>
+                         <div class="row row1">
+                           <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                           <div class="col">m</div>
+                           <div class="col">{{kenar_m}}</div>
+                         </div>
+                         <hr>
+                         <div class="row row1">
+                           <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                           <div class="col">cm</div>
+                           <div class="col">{{kenar_cm}}</div>
+                         </div>
+                         <hr>
+                         <div class="row row1">
+                           <div class="col"><h4 class="d_ort">Prizma yükseklik</h4></div>
+                           <div class="col">derece</div>
+                           <div class="col">{{prizma_h}}</div>
+                         </div> 
+                         <hr>
+                         <div class="row row1">
+                          <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                          <div class="col">derece</div>
+                          <div class="col">{{kare_konik_aci}}</div>
+                        </div> 
+                        <hr>            
+                     </div>
+                 </div>
+             </div>
+         
+          </div>
+
+
+          <div  ng-if="g1 == 2 && b == true "> 
+
+            <div class="card animated flipInX">
+           
+             <div class="item item-text-wrap carddikeybosluk">
+                   
+               <div class="bar bar-header bar-balanced">
+                     <h1 class="title">Hesap Hacim & Kenar boyuna bağlı yükseklik </h1>
+               </div><br><br><br>
+           
+                 
+              
+               <div class="col col1"></div>
+               
+                  
+                           <div class="row row1">
+                             <div class="col"><h4 class="d_ort">Kare hacim</h4> </div>
+                             <div class="col ">(m<sup>3</sup>/sa)</div>
+                             <div class="col"> {{c_s_v}}</div>
+                           </div>
+                           <hr>
+                             <div class="row row1">
+                               <div class="col"><h4 class="d_ort">Prizma hacim</h4></div>
+                               <div class="col">(m<sup>3</sup>/sa)</div>
+                               <div class="col">{{c_k_v}}</div>
+                             </div>
+                             <hr>
+                           <div class="row row1">
+                             <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                             <div class="col">m</div>
+                             <div class="col"><input class="input3" type="number" ng-model="k_k_l"></div>
+                           </div>
+                           <hr>
+                           
+                           
+                          
+               
+               <button class="button button-full button-positive" ng-click="konik_kare_hacim2(k_k_l)">
+               Hesapla
+               </button>
+               
+                           <div class="row row1">
+                             <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                             <div class="col">cm</div>
+                             <div class="col">{{kare_l_cm}} </div>
+                           </div>
+                           <hr>
+                           <div class="row row1">
+                             <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                             <div class="col">m</div>
+                             <div class="col">{{kare_h_m2}}</div>
+                           </div>
+                           <hr>
+                           <div class="row row1">
+                             <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                             <div class="col">cm</div>
+                             <div class="col">{{kare_h_cm2}}</div>
+                           </div>
+                           <hr>
+                           <div class="row row1">
+                             <div class="col"><h4 class="d_ort">Prizma yükseklik</h4></div>
+                             <div class="col">derece</div>
+                             <div class="col">{{prizma_h2}}</div>
+                           </div> 
+                           <hr>
+                           <div class="row row1">
+                            <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                            <div class="col">derece</div>
+                            <div class="col">{{kare_konik_aci2}}</div>
+                          </div> 
+                          <hr>            
+                       </div>
+                   </div>
+               </div>
+           
+            </div>
+
+            <div  ng-if="g1 == 3 && b == true "> 
+
+              <div class="card animated flipInX">
+             
+               <div class="item item-text-wrap carddikeybosluk">
+                     
+                 <div class="bar bar-header bar-balanced">
+                       <h1 class="title">Hacim & Yüksekliğe bağlı kenar boyu </h1>
+                 </div><br><br><br>
+             
+                   
+                
+                 <div class="col col1"></div>
+                 
+                    
+                             <div class="row row1">
+                               <div class="col"><h4 class="d_ort">Toplam hacim</h4> </div>
+                               <div class="col ">(m<sup>3</sup>/sa)</div>
+                               <div class="col"> <input class="input3" type="number" ng-model="tplm_v"></div>
+                             </div>
+                             <hr>
+                               <div class="row row1">
+                                 <div class="col"><h4 class="d_ort">Konik Oranı</h4></div>
+                                 <div class="col">%</div>
+                                 <div class="col"><input class="input3" type="number" ng-model="knk_orn"></div>
+                               </div>
+                               <hr>
+                             <div class="row row1">
+                               <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                               <div class="col">m</div>
+                               <div class="col"><input class="input3" type="number" ng-model="h_kare"></div>
+                             </div>
+                             <hr>
+                             
+                             {{error7}}
+                            
+                 
+                 <button class="button button-full button-positive" ng-click="konik_kare_hacim3(tplm_v,knk_orn,h_kare)">
+                 Hesapla
+                 </button>
+                 
+                             <div class="row row1">
+                               <div class="col"><h4 class="d_ort">Kare Hacim</h4></div>
+                               <div class="col">(m<sup>3</sup>/sa)</div>
+                               <div class="col">{{kare_v}} </div>
+                             </div>
+                             <hr>
+                             <div class="row row1">
+                               <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                               <div class="col">cm</div>
+                               <div class="col">{{yuks_kare_cm}}</div>
+                             </div>
+                             <hr>
+                             <div class="row row1">
+                               <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                               <div class="col">m</div>
+                               <div class="col">{{kare_h_mt}}</div>
+                             </div>
+                             <hr>
+                             <div class="row row1">
+                               <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                               <div class="col">cm</div>
+                               <div class="col">{{kare_h_cmt}}</div>
+                             </div> 
+                             <hr>
+                             <div class="row row1">
+                              <div class="col"><h4 class="d_ort">Prizma Hacim</h4></div>
+                              <div class="col">(m<sup>3</sup>/sa)</div>
+                              <div class="col">{{prizma_v}}</div>
+                            </div> 
+                            <hr>
+                           <div class="row row1">
+                              <div class="col"><h4 class="d_ort"> Prizma Yükseklik</h4></div>
+                              <div class="col">m</div>
+                              <div class="col">{{h_prizma}}</div>
+                            </div> 
+                            <hr><div class="row row1">
+                            <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                            <div class="col">derece</div>
+                            <div class="col">{{aci_kare_konik}}</div>
+                          </div> 
+                          <hr>            
+                         </div>
+                     </div>
+                 </div>
+             
+              </div>
+
+
+
+              <div  ng-if="g1 == 4 && b == true "> 
+
+                <div class="card animated flipInX">
+               
+                 <div class="item item-text-wrap carddikeybosluk">
+                       
+                   <div class="bar bar-header bar-balanced">
+                         <h1 class="title">  Hacim & Kenar Boyuna bağlı yükseklik </h1>
+                   </div><br><br><br>
+               
+                  
+                   <div class="col col1"></div>
+                   
+                      
+                               <div class="row row1">
+                                 <div class="col"><h4 class="d_ort">Toplam hacim</h4> </div>
+                                 <div class="col ">(m<sup>3</sup>/sa)</div>
+                                 <div class="col"> <input class="input3" type="number" ng-model="tplm_v1"></div>
+                               </div>
+                               <hr>
+                                 <div class="row row1">
+                                   <div class="col"><h4 class="d_ort">Konik Oranı</h4></div>
+                                   <div class="col">%</div>
+                                   <div class="col"><input class="input3" type="number" ng-model="knk_orn1"></div>
+                                 </div>
+                                 <hr>
+                               <div class="row row1">
+                                 <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                                 <div class="col">m</div>
+                                 <div class="col"><input class="input3" type="number" ng-model="l_kenar"></div>
+                               </div>
+                               <hr>
+                               
+                               {{error8}}
+                              
+                   
+                   <button class="button button-full button-positive" ng-click="konik_kare_hacim4(tplm_v1,knk_orn1,l_kenar)">
+                   Hesapla
+                   </button>
+                   
+                               <div class="row row1">
+                                 <div class="col"><h4 class="d_ort">Kare Hacim</h4></div>
+                                 <div class="col">(m<sup>3</sup>/sa)</div>
+                                 <div class="col">{{v_kare}} </div>
+                               </div>
+                               <hr>
+                               <div class="row row1">
+                                 <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                                 <div class="col">cm</div>
+                                 <div class="col">{{kenar_l_cm}}</div>
+                               </div>
+                               <hr>
+                               <div class="row row1">
+                                 <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                                 <div class="col">m</div>
+                                 <div class="col">{{h_kare_m }}</div>
+                               </div>
+                               <hr>
+                               <div class="row row1">
+                                 <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                                 <div class="col">cm</div>
+                                 <div class="col">{{h_kare_cm}}</div>
+                               </div> 
+                               <hr>
+                               <div class="row row1">
+                                <div class="col"><h4 class="d_ort">Prizma Hacim</h4></div>
+                                <div class="col">(m<sup>3</sup>/sa)</div>
+                                <div class="col">{{v_przma}}</div>
+                              </div> 
+                              <hr>
+                             <div class="row row1">
+                                <div class="col"><h4 class="d_ort"> Prizma Yükseklik</h4></div>
+                                <div class="col">m</div>
+                                <div class="col">{{h_przma}}</div>
+                              </div> 
+                              <hr><div class="row row1">
+                              <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                              <div class="col">derece</div>
+                              <div class="col">{{aci_kare_knk}}</div>
+                            </div> 
+                            <hr>            
+                           </div>
+                       </div>
+                   </div>
+               
+                </div>
+
+
+                <div  ng-if="g1 == 5 && b == true "> 
+
+                  <div class="card animated flipInX">
+                 
+                   <div class="item item-text-wrap carddikeybosluk">
+                         
+                     <div class="bar bar-header bar-balanced">
+                           <h1 class="title">  Kenar Boyu & Yüksekliğe bağlı hacim </h1>
+                     </div><br><br><br>
+                 
+                    
+                     <div class="col col1"></div>
+                     
+                        
+                                 <div class="row row1">
+                                   <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4> </div>
+                                   <div class="col ">m </div>
+                                   <div class="col"> <input class="input3" type="number" ng-model="kenar_l_5"></div>
+                                 </div>
+                                 <hr>
+                                   <div class="row row1">
+                                     <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                                     <div class="col">m</div>
+                                     <div class="col"><input class="input3" type="number" ng-model="kare_h_5"></div>
+                                   </div>
+                                   <hr>
+                                 <div class="row row1">
+                                   <div class="col"><h4 class="d_ort">Prizma Yükseklik</h4></div>
+                                   <div class="col">m</div>
+                                   <div class="col"><input class="input3" type="number" ng-model="przm_h_5"></div>
+                                 </div>
+                                 <hr>
+                                 
+                                 {{error8}}
+                                
+                     
+                     <button class="button button-full button-positive" ng-click="konik_kare_hacim5(kenar_l_5,kare_h_5,przm_h_5)" ></button>
+                     
+                     
+                                 <div class="row row1">
+                                   <div class="col"><h4 class="d_ort">Kare kenar boyu</h4></div>
+                                   <div class="col">m</div>
+                                   <div class="col">{{kare_knr_l}} </div>
+                                 </div>
+                                 <hr>
+                                 <div class="row row1">
+                                   <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                                   <div class="col">cm</div>
+                                   <div class="col">{{kare_yuks}}</div>
+                                 </div>
+                                 <hr>
+                                 <div class="row row1">
+                                   <div class="col"><h4 class="d_ort">Prizma Yükseklik</h4></div>
+                                   <div class="col">m</div>
+                                   <div class="col">{{przm_yuks}}</div>
+                                 </div>
+                                 <hr>
+                                 <div class="row row1">
+                                   <div class="col"><h4 class="d_ort">Kare Hacim</h4></div>
+                                   <div class="col">(m<sup>3</sup>/sa)</div>
+                                   <div class="col">{{kare_hcm}}</div>
+                                 </div> 
+                                 <hr>
+                                 <div class="row row1">
+                                  <div class="col"><h4 class="d_ort">Prizma Hacim</h4></div>
+                                  <div class="col">(m<sup>3</sup>/sa)</div>
+                                  <div class="col">{{przm_hcm}}</div>
+                                </div> 
+                                <hr>
+                               <div class="row row1">
+                                  <div class="col"><h4 class="d_ort"> Toplam Hacim</h4></div>
+                                  <div class="col">(m<sup>3</sup>/sa)</div>
+                                  <div class="col">{{toplam_hcm}}</div>
+                                </div> 
+                                <hr><div class="row row1">
+                                <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                                <div class="col">derece</div>
+                                <div class="col">{{knk_aci}}</div>
+                              </div> 
+                              <hr>            
+                             </div>
+                         </div>
+                     </div>
+                 
+                  </div>
+
 
   </ion-content>
 </ion-view>
