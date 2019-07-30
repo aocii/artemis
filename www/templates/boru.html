@@ -1,0 +1,104 @@
+<ion-view view-title="Boru Delik Çap&Hız Hesabı">
+    <ion-content class="animated rollIn">
+      
+	
+		
+     	
+                
+        
+        
+        <li class="item item-toggle">
+            <h3>Boru & Delik Çapına Bağlı Delik Sayısı  </h3>
+            <label class="toggle toggle-positive">
+              <input type="checkbox" ng-model="boru1" ng-init="boru1=false">
+              <div class="track">
+                <div class="handle"></div>
+               </div>
+            </label>
+       </li>
+       <div ng-if="boru1 == true">
+       
+            <div class="card animated fadeInDown" >
+                <div class="item item-text-wrap">
+        
+                    <h3>En&boy&hacime bağlı yükseklik </h3>
+                    <div class="row">
+                        <div class="col">Hacim (m3)</div>
+                        <div class="col">En (m)</div>
+                        <div class="col">Boy (m)</div>
+                        <div class="col"></div>
+                    </div>
+    
+    
+                    <div class="row">
+                    <div class="col"><input class="input3" type="number" ng-model="hacim"></div>
+                    <div class="col"><input class="input3" type="number" ng-model="en"></div>
+                    <div class="col"><input class="input3" type="number" ng-model="boy"></div>
+                    <div class="col"><button class="button button-small button-positive" ng-click="drtg(hacim,en,boy)">Hesapla</button></div>
+                    </div>
+        
+                    <hr>
+    
+                    <div class="row">
+                        <div class="col">Yükseklik (m)</div>
+                        <div class="col">{{drtgn_h}}</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        
+       <li class="item item-toggle">
+        <h3>Boru & Delik Sayısına Bağlı Çap  </h3>
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="boru2" ng-init="boru2=false">
+          <div class="track">
+            <div class="handle"></div>
+           </div>
+        </label>
+        </li>
+        
+        <div ng-if="boru2 == true">
+       
+                <div class="card animated fadeInDown" >
+                    <div class="item item-text-wrap">
+            
+                        <h3>En&boy&hacime bağlı yükseklik </h3>
+                        <div class="row">
+                            <div class="col">Hacim (m3)</div>
+                            <div class="col">En (m)</div>
+                            <div class="col">Boy (m)</div>
+                            <div class="col"></div>
+                        </div>
+        
+        
+                        <div class="row">
+                        <div class="col"><input class="input3" type="number" ng-model="hacim"></div>
+                        <div class="col"><input class="input3" type="number" ng-model="en"></div>
+                        <div class="col"><input class="input3" type="number" ng-model="boy"></div>
+                        <div class="col"><button class="button button-small button-positive" ng-click="drtg(hacim,en,boy)">Hesapla</button></div>
+                        </div>
+            
+                        <hr>
+        
+                        <div class="row">
+                            <div class="col">Yükseklik (m)</div>
+                            <div class="col">{{drtgn_h}}</div>
+                        </div>
+                        
+                    </div>
+                </div>
+    
+            </div>        
+
+        
+        
+        <br><center><button class="button button-positive animated rollIn" ng-click = "boru()">Tank Tipi ve bekletme süreleri</button></center></br>
+
+
+
+
+    </ion-content>
+  </ion-view>
+  

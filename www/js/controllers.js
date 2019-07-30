@@ -246,6 +246,21 @@ $scope.konik_kare_hacim4=function (tplm_v1,knk_orn1,l_kenar){
   }
 
 }
+$scope.konik_kare_hacim5 = function (kenar_l_5,kare_h_5,przm_h_5) {
+  karekenarboyucm = kenar_l_5*100
+  $scope.kare_knr_l = Number(karekenarboyucm).toFixed(2)
+  kareyukseklikcm = kare_h_5*100
+  $scope.kare_yuks = Number(kareyukseklikcm).toFixed(2)
+  prizmayukseklikcm = przm_h_5*100
+  $scope.przm_yuks = Number(prizmayukseklikcm).toFixed(2)
+  karehacim = kare_h_5*kenar_l_5*kenar_l_5
+  $scope.kare_hcm = Number(karehacim).toFixed(2)
+  prizmahacim = (kenar_l_5*kenar_l_5*przm_h_5)/3
+  $scope.przm_hcm = Number(prizmahacim).toFixed(2)
+  toplamhacim = karehacim + prizmahacim
+  $scope.toplam_hcm = Number(toplamhacim).toFixed(2)
+  $scope.knk_aci = Number((Math.atan(przm_h_5/(kenar_l_5/2)))*57.3).toFixed(2)
+}
 
 
 
@@ -261,6 +276,21 @@ $scope.konik_kare_hacim4=function (tplm_v1,knk_orn1,l_kenar){
   //xhttp.open("GET", "http://192.168.10.198:3002/", true);
   //xhttp.send();
 //}
+
+
+$scope.boru = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'Boru & Çap:' ,
+    template: '<img class="full-image custom"src="/img/boru.png"> '
+    
+})}
+
+$scope.konik = function() {
+  var alertPopup = $ionicPopup.alert({
+    title: 'Boru & Çap:' ,
+    template: '<img class="full-image custom"src="/img/konik.png"> '
+    
+})}
 
 $scope.y = function (c,d) {
   xii = Number(((c-d)/c)*100).toFixed(2)
@@ -292,7 +322,7 @@ if(xiii >100 || xiii < 0 ) {
     { title: 'Tesis Verim', adres: 'verim', id: 0 },
     { title: 'Standart Tank Hacim Hesabı ', adres: 'tank', id: 1 },
     { title: 'Konik Tabanlı Tank Hacim Hesabı', adres:'koniktank', id: 2 },
-    { title: 'Boru Delik Çap&Hız Hesabı', id: 3 },
+    { title: 'Boru Delik Çap&Hız Hesabı', adres:'boru', id: 3 },
    { title: 'Biz Kimiz?',adres: 'tanitim', id: 4 }
   ];
 })

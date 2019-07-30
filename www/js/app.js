@@ -85,6 +85,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+    .state('app.boru', {
+      url: '/boru',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/boru.html'
+        }
+      }
+    })
     .state('app.playlists', {
       url: '/playlists',
       views: {
