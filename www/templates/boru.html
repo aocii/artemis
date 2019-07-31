@@ -152,82 +152,85 @@
     
             </div>   
 <!--**************************************************************************************************************************************-->
-            <li class="item item-toggle">
-                <h3>Boru & Delik Sayısına Bağlı Çap  </h3>
-                <label class="toggle toggle-positive">
-                  <input type="checkbox" ng-model="boru3" ng-init="boru3=false">
-                  <div class="track">
-                    <div class="handle"></div>
-                   </div>
-                </label>
-                </li>
-                
-                <div ng-if="boru3 == true">
-               
-                    
-               
-                        <div class="card animated fadeInLeft">
-                               
-                            <div class="item item-text-wrap carddikeybosluk">
-                                  
-                              <div class="bar bar-header bar-balanced">
-                                    <h1 class="title"> Boru & Delik Sayısına Bağlı Çap</h1>
-                              </div><br><br><br>
-                          
-                             
-                              <div class="col col1">
-                              
-                                 
-                                <div class="row row1">
-                                    <div class="col"><h4 class="d_ort">Boru İç Çapı ( R )
-                                    </h4> </div>
-                                    <div class="col ">mm</div>
-                                    <div class="col"> <input class="input3" type="number" ng-model="ic_r_1"></div>
-                                    </div>
-                                <hr>
-                                <div class="row row1">
-                                    <div class="col"><h4 class="d_ort">Delik Adeti
-                                    </h4></div>
-                                    <div class="col">tane</div>
-                                    <div class="col"><input class="input3" type="number" ng-model="delik_tane"></div>
-                                </div>
-                                <hr>
-                                    
-                                     
-                                       
-                              
-                              <button class="button button-full button-positive" ng-click="cap(ic_r_1,delik_tane)">
-                              Hesapla
-                              </button>
-                              
-                                          <div class="row row1">
-                                            <div class="col"><h4 class="d_ort">Boru Kesit Alanı
-                                            </h4></div>
-                                            <div class="col">mm<sup>2</sup></div>
-                                            <div class="col">{{boru_k_a_1}} </div>
-                                          </div>
-                                          <hr>
-                                          <div class="row row1">
-                                            <div class="col"><h4 class="d_ort">Delik Kesit Alanı
-                                            </h4></div>
-                                            <div class="col">mm<sup>2</sup></div>
-                                            <div class="col">{{delik_k_a_1}}</div>
-                                          </div>
-                                          <hr>
-                                          <div class="row row1">
-                                            <div class="col"><h4 class="d_ort">Min. Delik Çapı
-                                            </h4></div>
-                                            <div class="col">tane</div>
-                                            <div class="col">{{min_cap}}</div>
-                                          </div>
-                                          <hr>
-                                                      
-                                      </div>
-                                  </div>
-                    
-                           </div>
+<li class="item item-toggle">
+   
+    <h3>Boru & Delik Sayısına Bağlı Çap  </h3>
+    
+        <label class="toggle toggle-positive">
             
-                    </div>   
+            <input type="checkbox" ng-model="boru3" ng-init="boru3=false">
+            
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+    
+        </label>
+</li>
+
+<div ng-if="boru3 == true">
+
+    <div class="card animated fadeInLeft">
+            
+        <div class="item item-text-wrap carddikeybosluk">
+                
+            <div class="bar bar-header bar-balanced">
+                <h1 class="title"> Boru & Delik Sayısına Bağlı Çap</h1>
+            </div><br><br><br>
+        
+            
+            <div class="col col1">
+            
+                
+            <div class="row row1">
+                <div class="col"><h4 class="d_ort">Boru İç Çapı ( R )
+                </h4> </div>
+                <div class="col ">mm</div>
+                <div class="col"> <input class="input3" type="number" ng-model="ic_r_1"></div>
+                </div>
+            <hr>
+            <div class="row row1">
+                <div class="col"><h4 class="d_ort">Delik Adeti
+                </h4></div>
+                <div class="col">tane</div>
+                <div class="col"><input class="input3" type="number" ng-model="delik_tane"></div>
+            </div>
+            <hr>
+                
+                    
+                    
+            
+            <button class="button button-full button-positive" ng-click="cap(ic_r_1,delik_tane)">
+            Hesapla
+            </button>
+            
+                        <div class="row row1">
+                        <div class="col"><h4 class="d_ort">Boru Kesit Alanı
+                        </h4></div>
+                        <div class="col">mm<sup>2</sup></div>
+                        <div class="col">{{boru_k_a_1}} </div>
+                        </div>
+                        <hr>
+                        <div class="row row1">
+                        <div class="col"><h4 class="d_ort">Delik Kesit Alanı
+                        </h4></div>
+                        <div class="col">mm<sup>2</sup></div>
+                        <div class="col">{{delik_k_a_1}}</div>
+                        </div>
+                        <hr>
+                        <div class="row row1">
+                        <div class="col"><h4 class="d_ort">Min. Delik Çapı
+                        </h4></div>
+                        <div class="col">tane</div>
+                        <div class="col">{{min_cap}}</div>
+                        </div>
+                        <hr>
+                                    
+                    </div>
+                </div>
+
+        </div>
+
+</div>   
             
             
         

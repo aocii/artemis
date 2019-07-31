@@ -55,7 +55,8 @@
             </div>
            
 {{error5}}
-<button class="button button-full button-positive" ng-click="konikhacim(debi_k,t_sa,t_dk,k_oran,emniyet_k)">
+<button class="button button-full button-positive" ng-click="konikhacim(debi_k,t_sa,t_dk,k_oran,emniyet_k)" 
+ng-model="deneme" ng-init="deneme=false" >
 Hesapla
 </button>
 
@@ -82,7 +83,124 @@ Hesapla
               <div class="col">(m<sup>3</sup>/sa)</div>
               <div class="col">{{c_k_v}}</div>
             </div> 
-            <hr>           
+            <hr> 
+            
+              
+            
+            <div class="animated fadeInLeft" ng-if="c_e_v">
+              
+              
+                <li class="item item-toggle">
+                    <h3>Yüksekliğe göre değişim </h3>
+                    <label class="toggle toggle-positive">
+                      <input type="checkbox" ng-model="silyuk" ng-init="a=false">
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                    </label>
+                  </li>
+                
+              
+                    <div ng-if="silyuk == true">
+                          <div class="row row1 animated fadeInLeft">
+                      
+                              <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
+                              <div class="col">m</div>
+                              <div class="col"><input class="input3" type="number" ng-model="sil_yuk"></div>
+                          </div>
+                        
+                          <div class="item range range-positive animated fadeInLeft">
+                              {{ust}}
+                            <input type="range" name="volume" min="0" max="100"  ng-model="swipe" ng-change="swp(swipe,sil_yuk)">
+                            
+                          </div>
+          
+                          
+                          <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
+                            <div class="col">m</div>
+                            <div class="col">{{r_m}} </div>
+                          </div>
+                          <hr>
+
+                          <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
+                            <div class="col">cm</div>
+                            <div class="col">{{r_cm}}</div>
+                          </div>
+                          <hr>
+
+                          <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
+                            <div class="col">m</div>
+                            <div class="col">{{konik_h}}</div>
+                          </div>
+                          <hr>
+
+                          <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                            <div class="col">derece</div>
+                            <div class="col" style="color: {{renk}}">{{konik_d}}</div>
+                          </div> 
+                          <hr>    
+                    </div>
+
+                  <li class="item item-toggle">
+                      <h3>Yarıçapa göre değişim </h3>
+                      <label class="toggle toggle-positive">
+                        <input type="checkbox" ng-model="cap_m" ng-init="cap_m=false">
+                          <div class="track">
+                            <div class="handle"></div>
+                          </div>
+                      </label>
+                    </li> 
+                    <div ng-if="cap_m == true">
+                        <div class="row row1 c">
+                    
+                            <div class="col"><h4 class="d_ort">Silindir çap</h4></div>
+                            <div class="col">m</div>
+                            <div class="col"><input class="input3" type="number" ng-model="cap1"></div>
+                        </div>
+                      
+                        <div class="item range range-positive animated fadeInLeft">
+                            {{ust1}}
+                          <input type="range" name="volume" min="0" max="100"  ng-model="swipe1" ng-change="swp1(swipe1,cap1)">
+                          
+                        </div>
+        
+                        
+                        <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">silindir yükseklik</h4></div>
+                            <div class="col">m</div>
+                            <div class="col">{{k_s_h_m}} </div>
+                          </div>
+                          <hr>
+                          <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
+                            <div class="col">cm</div>
+                            <div class="col">{{k_s_h_cm}}</div>
+                          </div>
+                          <hr>
+                          <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
+                            <div class="col">m</div>
+                            <div class="col">{{konik_h_s}}</div>
+                          </div>
+                          <hr>
+                          <div class="row row1 animated fadeInLeft">
+                            <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                            <div class="col">derece</div>
+                            <div class="col" style="color: {{renk1}}">{{konik_d_s}}</div>
+                          </div> 
+                          <hr>    
+                  </div>
+
+
+
+              </div>
+
+  
+
       	</div>
     </div>
 </div>
@@ -637,7 +755,9 @@ Hesapla
                           <div class="col">derece</div>
                           <div class="col">{{kare_konik_aci}}</div>
                         </div> 
-                        <hr>            
+                        <hr>
+                        
+                        
                      </div>
                  </div>
              </div>

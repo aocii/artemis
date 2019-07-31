@@ -98,6 +98,34 @@ $scope.konik_sil_hacim = function(s_h) {
   $scope.konik_h =Number(($scope.c_k_v1*3)/(3.1416*$scope.r_m1*$scope.r_m1)).toFixed(2)
   $scope.konik_d = Number(Math.atan($scope.konik_h/$scope.r_m1)*57.3).toFixed(2)
 }
+
+$scope.swp= function(swipe,sil_yuk) {
+ $scope.ust = ((sil_yuk*3)*(swipe/100)).toFixed(2)
+ $scope.r_m1 = Math.pow(($scope.c_s_v1/(Math.PI*$scope.ust)),0.5)
+ $scope.r_m = Number($scope.r_m1).toFixed(2)
+ $scope.r_cm = Number($scope.r_m1*100).toFixed(2)
+ $scope.konik_h =Number(($scope.c_k_v1*3)/(3.1416*$scope.r_m1*$scope.r_m1)).toFixed(2)
+ $scope.konik_d = Number(Math.atan($scope.konik_h/$scope.r_m1)*57.3).toFixed(2)
+ if($scope.konik_d < 55){
+   $scope.renk = "red" 
+ }else{$scope.renk="black"}
+}
+
+$scope.swp1 = function (swipe1,cap1) {
+  $scope.ust1 = ((cap1/3)*(swipe1/100)).toFixed(2) 
+  $scope.k_s_h_m1 = $scope.c_s_v1/(Math.PI*$scope.ust1*$scope.ust1)
+  $scope.k_s_h_m = Number($scope.k_s_h_m1).toFixed(2)
+  $scope.k_s_h_cm = Number($scope.k_s_h_m1*100).toFixed(2)
+  $scope.konik_h_s1 = ($scope.c_k_v1*3)/(3.1416*$scope.ust1*$scope.ust1)
+  $scope.konik_h_s = Number(($scope.c_k_v1*3)/(3.1416*$scope.ust1*$scope.ust1)).toFixed(2)
+  $scope.konik_d_s = Number(Math.atan($scope.konik_h_s1/$scope.ust1)*57.3).toFixed(2)
+  if($scope.konik_d_s< 55){
+    $scope.renk1 = "red" 
+  }else{$scope.renk1="black"}
+
+}
+
+
 $scope.konik_sil_yuk = function(r){
   $scope.k_s_h_m1 = $scope.c_s_v1/(Math.PI*r*r)
   $scope.k_s_h_m = Number($scope.k_s_h_m1).toFixed(2)
