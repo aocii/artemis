@@ -262,7 +262,23 @@ $scope.konik_kare_hacim5 = function (kenar_l_5,kare_h_5,przm_h_5) {
   $scope.knk_aci = Number((Math.atan(przm_h_5/(kenar_l_5/2)))*57.3).toFixed(2)
 }
 
+$scope.yuks = function (ic_r,delik_r){
+  boru_k_a = Math.PI*(ic_r*ic_r)/4
+  $scope.boru_k_a =  Number(boru_k_a).toFixed(2)
+  delik_k_a = Math.PI*(delik_r*delik_r)/4
+  $scope.delik_k_a = Number(delik_k_a).toFixed(2)
+  tane_delik = (boru_k_a / delik_k_a) +1
+  $scope.tane_delik = Number(tane_delik).toFixed(0)
 
+}
+$scope.cap = function (ic_r_1,delik_tane) {
+  boru_k_a_1 = Math.PI*(ic_r_1*ic_r_1)/4
+  $scope.boru_k_a_1 = Number(boru_k_a_1).toFixed(2)
+  delik_k_a_1 = boru_k_a_1/delik_tane
+  $scope.delik_k_a_1 = Number(delik_k_a_1).toFixed(2)
+  $scope.min_cap = Number(Math.pow(4*delik_k_a_1/Math.PI,0.5)).toFixed(2)
+
+}
 
 
 //$scope.deneme = function(){
