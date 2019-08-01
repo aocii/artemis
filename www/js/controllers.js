@@ -64,9 +64,13 @@ $scope.konikhacim = function(debi_k,t_sa,t_dk,k_oran,emniyet_k){
    $scope.c_e_v= "*"
    $scope.c_s_v= "*"
    $scope.c_k_v = "*"
-}
-  
+} 
   else{
+    if(k_oran < 10){$scope.uyari1 = "Konik Oranı Literatürde en az %10"}
+else{$scope.uyari1 = "" }
+    if(emniyet_k<25){$scope.uyari2 = "Emniyet payı Literatürde en az %25"}
+else{$scope.uyari2 = ""}
+
     if(t_dk == null ){t_dk = 0}
     $scope.c_v1= debi_k*t_sa+debi_k*(t_dk/60)
     $scope.c_v = Number($scope.c_v1).toFixed(2) 
@@ -125,6 +129,22 @@ $scope.swp1 = function (swipe1,cap1) {
 
 }
 
+$scope.swp2 = function (swipe2,kare_yuks) {
+  $scope.ust2 = ((kare_yuks*3)*(swipe2/100)).toFixed(2)
+  $scope.kare_h_cm = Number($scope.ust2*100).toFixed(2)
+  $scope.kenar_m1 = Math.pow(($scope.c_s_v1/$scope.ust2),0.5)
+  $scope.kenar_m = Number($scope.kenar_m1).toFixed(2)
+  $scope.kenar_cm = Number($scope.kenar_m1*100).toFixed(2)
+  $scope.prizma_h1 = 3*$scope.c_k_v1/($scope.kenar_m1*$scope.kenar_m1)
+  $scope.prizma_h = Number($scope.prizma_h1).toFixed(2)
+  $scope.kare_konik_aci = Number((Math.atan($scope.prizma_h1/($scope.kenar_m1/2))*57.3)).toFixed(2)
+
+  if($scope.kare_konik_aci< 55){
+    $scope.renk2 = "red" 
+  }else{$scope.renk2="black"}
+
+}
+
 
 $scope.konik_sil_yuk = function(r){
   $scope.k_s_h_m1 = $scope.c_s_v1/(Math.PI*r*r)
@@ -138,7 +158,7 @@ $scope.hacim_yuk_r = function (toplam_hacim,konik_oran,silindir_h) {
   if (konik_oran > 100 || konik_oran < 0)
   {$scope.error4 = "Oran 100'den büyük, 0'dan küçük olamaz"
   $scope.sil_v="*"
-  $scope.r_m1="*"
+  $scope.r_m1a="*"
   $scope.sil_h ="*"
   $scope.r_cm1="*"
   $scope.konik_v="*"
@@ -150,7 +170,7 @@ $scope.hacim_yuk_r = function (toplam_hacim,konik_oran,silindir_h) {
     $scope.sil_v1 = toplam_hacim*((100-konik_oran)/100)
     $scope.sil_v = Number($scope.sil_v1).toFixed(2)
     $scope.r_m11 = Math.pow(($scope.sil_v1/(Math.PI*silindir_h)),0.5)
-    $scope.r_m1 = Number($scope.r_m11).toFixed(2)
+    $scope.r_m1a = Number($scope.r_m11).toFixed(2)
     $scope.r_cm1 = Number($scope.r_m11*100).toFixed(2)
     $scope.konik_v1 = toplam_hacim*(konik_oran/100)
     $scope.konik_v = Number($scope.konik_v1).toFixed(2)

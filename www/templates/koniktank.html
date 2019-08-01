@@ -46,17 +46,42 @@
               <div class="col"><h4 class="d_ort">Konik Oranı</h4></div>
               <div class="col">Yüzde (%)</div>
               <div class="col"><input class="input3" type="number" ng-model="k_oran"></div>
+              
             </div>
+           <center> <h5><div style="color: red" ng-if="k_oran < 10" class= "ng-hide" ng-hide="k_oran==null">
+              <div class="animated bounceInLeft">
+                Konik Oranı Literatürde en az %10
+              </div>
+            </div></h5></center>
+           <center> <h5><div style="color: red" ng-if="k_oran > 100">
+              <div class="animated bounceInLeft">
+                Oran 100'den büyük olamaz
+              </div>
+            </div></h5></center>
             <hr>
             <div class="row row1">
               <div class="col"><h4 class="d_ort">Emniyet Payı</h4></div>
               <div class="col">Yüzde (%)</div>
               <div class="col"><input class="input3" type="number" ng-model="emniyet_k"></div>
+              
             </div>
+            
+           <center> <h5><div style="color: red" ng-if="emniyet_k < 25 " class= "ng-hide" ng-hide="emniyet_k==null" >
+              <div class="animated bounceInLeft">
+                Emniyet payı Literatürde en az %25
+              </div>
+            </div></h5>
+           </center>
+           <center> <h5><div style="color: red" ng-if="emniyet_k > 100">
+                <div class="animated bounceInLeft">
+                  Oran 100'den büyük olamaz
+                </div>
+              </div></h5>
+           </center>
+            
            
-{{error5}}
-<button class="button button-full button-positive" ng-click="konikhacim(debi_k,t_sa,t_dk,k_oran,emniyet_k)" 
-ng-model="deneme" ng-init="deneme=false" >
+<button class="button button-full button-positive" ng-click="konikhacim(debi_k,t_sa,t_dk,k_oran,emniyet_k) " 
+ng-model="deneme" ng-init="deneme=false" ng-Disabled= "k_oran>100 || emniyet_k>100 || k_oran == null || emniyet_k == null || debi_k == null || (t_sa == null && t_dk==null) " >
 Hesapla
 </button>
 
@@ -85,68 +110,79 @@ Hesapla
             </div> 
             <hr> 
             
-              
+        <!--**********************************************************************************--> 
             
             <div class="animated fadeInLeft" ng-if="c_e_v">
               
-              
-                <li class="item item-toggle">
-                    <h3>Yüksekliğe göre değişim </h3>
-                    <label class="toggle toggle-positive">
-                      <input type="checkbox" ng-model="silyuk" ng-init="a=false">
-                        <div class="track">
-                          <div class="handle"></div>
-                        </div>
-                    </label>
-                  </li>
                 
-              
-                    <div ng-if="silyuk == true">
-                          <div class="row row1 animated fadeInLeft">
-                      
-                              <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
-                              <div class="col">m</div>
-                              <div class="col"><input class="input3" type="number" ng-model="sil_yuk"></div>
-                          </div>
-                        
-                          <div class="item range range-positive animated fadeInLeft">
-                              {{ust}}
-                            <input type="range" name="volume" min="0" max="100"  ng-model="swipe" ng-change="swp(swipe,sil_yuk)">
-                            
-                          </div>
-          
-                          
-                          <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
-                            <div class="col">m</div>
-                            <div class="col">{{r_m}} </div>
-                          </div>
-                          <hr>
-
-                          <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
-                            <div class="col">cm</div>
-                            <div class="col">{{r_cm}}</div>
-                          </div>
-                          <hr>
-
-                          <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
-                            <div class="col">m</div>
-                            <div class="col">{{konik_h}}</div>
-                          </div>
-                          <hr>
-
-                          <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
-                            <div class="col">derece</div>
-                            <div class="col" style="color: {{renk}}">{{konik_d}}</div>
-                          </div> 
-                          <hr>    
+              <li class="item item-toggle">
+                <h3>Yüksekliğe göre değişim <br> (Silindir Konik)  </h3>
+                <label class="toggle toggle-positive">
+                  <input type="checkbox" ng-model="silyuk" ng-init="a=false">
+                    <div class="track">
+                      <div class="handle"></div>
                     </div>
+                </label>
+              </li>
+          
+        
+              <div ng-if="silyuk == true">
+                    <div class="row row1 animated fadeInLeft">
+                
+                        <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
+                        <div class="col">m</div>
+                        <div class="col"><input class="input3" type="number" ng-model="sil_yuk"></div>
+                        
+                    </div>
+                    
+                  
+                    <div ng-if = "sil_yuk">
+                        
+                      <div  class="item range range-positive animated fadeInLeft">
+                          {{ust}} 
+                          <input type="range" name="volume" min="0" max="100"  ng-model="swipe" ng-change="swp(swipe,sil_yuk)">
+                      </div>
+                      
+                    </div>
+    
+                    
+                    <div ng-if="r_m" class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
+                      <div class="col">m</div>
+                      <div class="col">{{r_m}} </div>
+                    </div>
+                    <hr>
 
+                    <div ng-if="r_m" class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
+                      <div class="col">cm</div>
+                      <div class="col">{{r_cm}}</div>
+                    </div>
+                    <hr>
+
+                    <div ng-if="r_m"class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
+                      <div class="col">m</div>
+                      <div class="col">{{konik_h}}</div>
+                    </div>
+                    <hr>
+
+                    <div ng-if="r_m"class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                      <div class="col">derece</div>
+                      <div class="col" style="color: {{renk}}">{{konik_d}}</div>
+                    </div> 
+                    <center><h5><div style="color: red" ng-if= "konik_d<55"  >
+                      <div class="animated bounceInLeft">
+                      Koniklik Açısı Uygulamada en az 55 derece	
+                    </div>	
+                    </div></center>
+                  
+                    <hr>    
+            </div>
+<!--**************************************************************************************************************************-->
                   <li class="item item-toggle">
-                      <h3>Yarıçapa göre değişim </h3>
+                      <h3>Yarıçapa göre değişim <br> (Silindir Konik) </h3>
                       <label class="toggle toggle-positive">
                         <input type="checkbox" ng-model="cap_m" ng-init="cap_m=false">
                           <div class="track">
@@ -155,47 +191,193 @@ Hesapla
                       </label>
                     </li> 
                     <div ng-if="cap_m == true">
-                        <div class="row row1 c">
+                        <div class="row row1 animated fadeInLeft">
                     
                             <div class="col"><h4 class="d_ort">Silindir çap</h4></div>
                             <div class="col">m</div>
                             <div class="col"><input class="input3" type="number" ng-model="cap1"></div>
                         </div>
                       
-                        <div class="item range range-positive animated fadeInLeft">
-                            {{ust1}}
-                          <input type="range" name="volume" min="0" max="100"  ng-model="swipe1" ng-change="swp1(swipe1,cap1)">
-                          
+                        <div ng-if="cap1">
+                           <div class="item range range-positive animated fadeInLeft">
+                              {{ust1}}
+                            <input type="range" name="volume" min="0" max="100"  ng-model="swipe1" ng-change="swp1(swipe1,cap1)">
+                          </div>
                         </div>
         
                         
-                        <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">silindir yükseklik</h4></div>
-                            <div class="col">m</div>
-                            <div class="col">{{k_s_h_m}} </div>
+                          <div ng-if="k_s_h_m" >
+                            <div class="row row1 animated fadeInLeft">
+                              <div class="col"><h4 class="d_ort">silindir yükseklik</h4></div>
+                              <div class="col">m</div>
+                              <div class="col">{{k_s_h_m}} </div>
+                            </div>
+                            <hr>
                           </div>
-                          <hr>
-                          <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
-                            <div class="col">cm</div>
-                            <div class="col">{{k_s_h_cm}}</div>
+                          
+                          <div ng-if="k_s_h_m"> 
+                            <div class="row row1 animated fadeInLeft">
+                              <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
+                              <div class="col">cm</div>
+                              <div class="col">{{k_s_h_cm}}</div>
+                            </div>
+                            <hr>
                           </div>
-                          <hr>
-                          <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
-                            <div class="col">m</div>
-                            <div class="col">{{konik_h_s}}</div>
+                          
+                          <div ng-if="k_s_h_m">
+                            <div class="row row1 animated fadeInLeft">
+                              <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
+                              <div class="col">m</div>
+                              <div class="col">{{konik_h_s}}</div>
+                            </div>
+                            <hr>
+                          </div>                          
+                          
+                          <div ng-if="k_s_h_m">
+                            <div class="row row1 animated fadeInLeft">
+                              <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                              <div class="col">derece</div>
+                              <div class="col" style="color: {{renk1}}">{{konik_d_s}}</div>
+                            </div>
+                            <center><h5><div style="color: red" ng-if= "konik_d_s<55"  >
+                                <div class="animated bounceInLeft">
+                                Koniklik Açısı Uygulamada en az 55 derece	
+                              </div>	
+                              </div></center>
+                            <hr>  
                           </div>
-                          <hr>
-                          <div class="row row1 animated fadeInLeft">
-                            <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
-                            <div class="col">derece</div>
-                            <div class="col" style="color: {{renk1}}">{{konik_d_s}}</div>
-                          </div> 
-                          <hr>    
+                             
+                  </div>
+<!--******************************************************************************************************************-->
+                  <li class="item item-toggle">
+                    <h3>Yüksekliğe göre değişim <br> (Kare Konik) </h3>
+                    <label class="toggle toggle-positive">
+                      <input type="checkbox" ng-model="yuk_kare" ng-init="yuk_kare=false">
+                        <div class="track">
+                          <div class="handle"></div>
+                        </div>
+                    </label>
+                  </li> 
+                  <div ng-if="yuk_kare == true">
+                    <div class="row row1 animated fadeInLeft">
+                
+                        <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                        <div class="col">m</div>
+                        <div class="col"><input class="input3" type="number" ng-model="kare_yuks"></div>
+                    </div>
+                  
+                    <div ng-if ="kare_yuks"> 
+                      <div class="item range range-positive animated fadeInLeft">
+                          {{ust2}}
+                        <input type="range" name="volume" min="0" max="100"  ng-model="swipe2" ng-change="swp2(swipe2,kare_yuks)">
+                      </div>
+                    </div>
+                  
+
+                  <div ng-if="kare_h_cm"> 
+                    <div class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
+                      <div class="col">cm</div>
+                      <div class="col">{{kare_h_cm}} </div>
+                    </div>
+                    <hr>
                   </div>
 
+                  
+                  <div ng-if="kare_h_cm">
+                    <div class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                      <div class="col">m</div>
+                      <div class="col">{{kenar_m}}</div>
+                    </div>
+                    <hr>
+                  </div>
+                  
+                  <div ng-if="kare_h_cm">
+                    <div class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Kare Kenar Boyu</h4></div>
+                      <div class="col">cm</div>
+                      <div class="col">{{kenar_cm}}</div>
+                    </div>
+                    <hr>
+                  </div>
+                  
+                  <div  ng-if="kare_h_cm">
+                    <div class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Prizma yükseklik</h4></div>
+                      <div class="col">derece</div>
+                      <div class="col">{{prizma_h}}</div>
+                    </div>
+                    <hr>
+                  </div>
+                  
+                  <div ng-if="kare_h_cm">
+                    <div class="row row1 animated fadeInLeft">
+                      <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                      <div class="col">derece</div>
+                      <div class="col" style="color: {{renk2}}" >{{kare_konik_aci}}</div>
+                    </div>
+                    <center><h5><div style="color: red" ng-if= "kare_konik_aci<55"  >
+                        <div class="animated bounceInLeft">
+                        Koniklik Açısı Uygulamada en az 55 derece	
+                      </div>	
+                      </div></center>
+                    <hr>
+                  </div> 
+                </div>
+                
+<!--**************************************************************************************************************-->
+                <li class="item item-toggle">
+                  <h3>Kenar boyuna göre yükseklik değişimi (Kare Konik) </h3>
+                  <label class="toggle toggle-positive">
+                    <input type="checkbox" ng-model="kenar_kare" ng-init="kenar_kare = false">
+                      <div class="track">
+                        <div class="handle"></div>
+                      </div>
+                  </label>
+                </li> 
+                <div ng-if="kenar_kare == true">
+                    <div class="row row1 c">
+                
+                        <div class="col"><h4 class="d_ort">Silindir çap</h4></div>
+                        <div class="col">m</div>
+                        <div class="col"><input class="input3" type="number" ng-model="cap1"></div>
+                    </div>
+                  
+                    <div class="item range range-positive animated fadeInLeft">
+                        {{ust1}}
+                      <input type="range" name="volume" min="0" max="100"  ng-model="swipe1" ng-change="swp1(swipe1,cap1)">
+                      
+                    </div>
+    
+                    
+                    <div class="row row1 animated fadeInLeft">
+                        <div class="col"><h4 class="d_ort">silindir yükseklik</h4></div>
+                        <div class="col">m</div>
+                        <div class="col">{{k_s_h_m}} </div>
+                      </div>
+                      <hr>
+                      <div class="row row1 animated fadeInLeft">
+                        <div class="col"><h4 class="d_ort">Silindir yükseklik</h4></div>
+                        <div class="col">cm</div>
+                        <div class="col">{{k_s_h_cm}}</div>
+                      </div>
+                      <hr>
+                      <div class="row row1 animated fadeInLeft">
+                        <div class="col"><h4 class="d_ort">Konik yükseklik</h4></div>
+                        <div class="col">m</div>
+                        <div class="col">{{konik_h_s}}</div>
+                      </div>
+                      <hr>
+                      <div class="row row1 animated fadeInLeft">
+                        <div class="col"><h4 class="d_ort">Koniklik Açısı</h4></div>
+                        <div class="col">derece</div>
+                        <div class="col" style="color: {{renk2}}">{{konik_d_s}}</div>
+                      </div> 
+                      <hr>    
+              </div>
 
+            </div>
 
               </div>
 
@@ -449,7 +631,7 @@ Hesapla
                    <div class="row row1">
                      <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
                      <div class="col">metre</div>
-                     <div class="col">{{r_m1}}</div>
+                     <div class="col">{{r_m1a}}</div>
                    </div> 
                    <hr> 
                    <div class="row row1">
