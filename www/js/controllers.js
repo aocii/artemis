@@ -104,6 +104,7 @@ $scope.konik_sil_hacim = function(s_h) {
 }
 
 $scope.swp= function(swipe,sil_yuk) {
+  if(swipe == null){swipe=100/3}
  $scope.ust = ((sil_yuk*3)*(swipe/100)).toFixed(2)
  $scope.r_m1 = Math.pow(($scope.c_s_v1/(Math.PI*$scope.ust)),0.5)
  $scope.r_m = Number($scope.r_m1).toFixed(2)
@@ -116,6 +117,7 @@ $scope.swp= function(swipe,sil_yuk) {
 }
 
 $scope.swp1 = function (swipe1,cap1) {
+  if(swipe1 == null){swipe1=300}
   $scope.ust1 = ((cap1/3)*(swipe1/100)).toFixed(2) 
   $scope.k_s_h_m1 = $scope.c_s_v1/(Math.PI*$scope.ust1*$scope.ust1)
   $scope.k_s_h_m = Number($scope.k_s_h_m1).toFixed(2)
@@ -130,6 +132,7 @@ $scope.swp1 = function (swipe1,cap1) {
 }
 
 $scope.swp2 = function (swipe2,kare_yuks) {
+  if(swipe2 == null){swipe2=100/3}
   $scope.ust2 = ((kare_yuks*3)*(swipe2/100)).toFixed(2)
   $scope.kare_h_cm = Number($scope.ust2*100).toFixed(2)
   $scope.kenar_m1 = Math.pow(($scope.c_s_v1/$scope.ust2),0.5)
@@ -143,6 +146,21 @@ $scope.swp2 = function (swipe2,kare_yuks) {
     $scope.renk2 = "red" 
   }else{$scope.renk2="black"}
 
+}
+
+$scope.swp3 = function (swipe3, knr){
+  if(swipe3 == null){swipe3=100/3}
+  $scope.ust3 = ((knr*3)*(swipe3/100)).toFixed(2)
+  $scope.kare_l_cm = ($scope.ust3*100).toFixed(2)
+  $scope.kare_h_m21 = $scope.c_s_v1/($scope.ust3*$scope.ust3)
+  $scope.kare_h_m2 = Number($scope.kare_h_m21).toFixed(2)
+  $scope.kare_h_cm2 = Number($scope.kare_h_m21*100).toFixed(2)
+  $scope.prizma_h21 = 3*$scope.c_k_v1 /($scope.ust3*$scope.ust3)
+  $scope.prizma_h2 = Number($scope.prizma_h21).toFixed(2)
+  $scope.kare_konik_aci2 = Number((Math.atan($scope.prizma_h21/($scope.ust3/2))*57.3)).toFixed(2)
+  if($scope.kare_konik_aci2< 55){
+    $scope.renk3 = "red" 
+  }else{$scope.renk3="black"}
 }
 
 

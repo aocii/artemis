@@ -9,6 +9,11 @@
 	background: #e0e0e0;
 	border-radius: 10px;
 }
+.input4{
+	width: 100% ;
+	background: #e0e0e0;
+	border-radius: 10px;
+}
 .row1{
     padding-top: 0px;
     padding-right: 0px;
@@ -20,6 +25,15 @@
     padding-left: 0px;
     padding-right: 0px;
     padding-bottom: 0px;
+}
+.col2{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.col3{
+    padding-top: 5%;
 }
 .d_ort{
 	padding-top: 10%;
@@ -40,3 +54,18 @@
 .custom{
     margin-bottom: -5px;
 }
+.deneme12{
+    padding: 0px;
+    margin: 0px;
+    display: inline-block; 
+
+}
+.deneme123{
+    padding: 0px;
+    margin: 0px;
+    display: inline-block; 
+    width: 10px;
+
+
+}
+
