@@ -28,46 +28,46 @@
                           <div class="row row1">
                             <div class="col"><h4 class="d_ort">Boru İç Çapı ( R )
                             </h4> </div>
-                            <div class="col ">mm</div>
+                            <div class="col col3">mm</div>
                             <div class="col"> <input class="input3" type="number" ng-model="ic_r"></div>
                           </div>
                           <hr>
                             <div class="row row1">
                               <div class="col"><h4 class="d_ort">Delik Çapı ( R )
                                 </h4></div>
-                              <div class="col">mm</div>
+                              <div class="col col3">mm</div>
                               <div class="col"><input class="input3" type="number" ng-model="delik_r"></div>
                             </div>
                             <hr>
                           
                      
               
-              <button class="button button-full button-positive" ng-click="yuks(ic_r,delik_r)">
+              <button class="button button-full button-positive" ng-click="yuks(ic_r,delik_r)" ng-disabled="ic_r==null || delik_r == null">
               Hesapla
               </button>
-              
+              <div ng-if="boru_k_a" class="animated fadeInLeft">
                           <div class="row row1">
                             <div class="col"><h4 class="d_ort">Boru Kesit Alanı
                             </h4></div>
-                            <div class="col">mm<sup>2</sup></div>
+                            <div class="col col3">mm<sup>2</sup></div>
                             <div class="col">{{boru_k_a}} </div>
                           </div>
                           <hr>
                           <div class="row row1">
                             <div class="col"><h4 class="d_ort">Delik Kesit Alanı
                             </h4></div>
-                            <div class="col">mm<sup>2</sup></div>
+                            <div class="col col3">mm<sup>2</sup></div>
                             <div class="col">{{delik_k_a}}</div>
                           </div>
                           <hr>
                           <div class="row row1">
                             <div class="col"><h4 class="d_ort">Min. Delik Adeti
                             </h4></div>
-                            <div class="col">tane</div>
+                            <div class="col col3">tane</div>
                             <div class="col">{{tane_delik }}</div>
                           </div>
                           <hr>
-                                      
+                        </div>           
                       </div>
                   </div>
               </div>
@@ -104,14 +104,14 @@
                                   <div class="row row1">
                                     <div class="col"><h4 class="d_ort">Boru İç Çapı ( R )
                                     </h4> </div>
-                                    <div class="col ">mm</div>
+                                    <div class="col col3 ">mm</div>
                                     <div class="col"> <input class="input3" type="number" ng-model="ic_r_1"></div>
                                   </div>
                                   <hr>
                                     <div class="row row1">
                                       <div class="col"><h4 class="d_ort">Delik Adeti
                                         </h4></div>
-                                      <div class="col">tane</div>
+                                      <div class="col col3">tane</div>
                                       <div class="col"><input class="input3" type="number" ng-model="delik_tane"></div>
                                     </div>
                                     <hr>
@@ -119,32 +119,32 @@
                              
                                
                       
-                      <button class="button button-full button-positive" ng-click="cap(ic_r_1,delik_tane)">
+                      <button class="button button-full button-positive" ng-click="cap(ic_r_1,delik_tane)" ng-disabled = "ic_r_1 == null || delik_tane== null">
                       Hesapla
                       </button>
-                      
+                      <div ng-if="boru_k_a_1" class="animated fadeInLeft">
                                   <div class="row row1">
                                     <div class="col"><h4 class="d_ort">Boru Kesit Alanı
                                     </h4></div>
-                                    <div class="col">mm<sup>2</sup></div>
+                                    <div class="col col3">mm<sup>2</sup></div>
                                     <div class="col">{{boru_k_a_1}} </div>
                                   </div>
                                   <hr>
                                   <div class="row row1">
                                     <div class="col"><h4 class="d_ort">Delik Kesit Alanı
                                     </h4></div>
-                                    <div class="col">mm<sup>2</sup></div>
+                                    <div class="col col3">mm<sup>2</sup></div>
                                     <div class="col">{{delik_k_a_1}}</div>
                                   </div>
                                   <hr>
                                   <div class="row row1">
                                     <div class="col"><h4 class="d_ort">Min. Delik Çapı
                                     </h4></div>
-                                    <div class="col">tane</div>
+                                    <div class="col col3">tane</div>
                                     <div class="col">{{min_cap}}</div>
                                   </div>
                                   <hr>
-                                              
+                                </div>          
                               </div>
                           </div>
             
@@ -154,7 +154,7 @@
 <!--**************************************************************************************************************************************-->
 <li class="item item-toggle">
    
-    <h3>Boru & Delik Sayısına Bağlı Çap  </h3>
+    <h3>Boru Çapına Göre Su Hızı</h3>
     
         <label class="toggle toggle-positive">
             
@@ -174,7 +174,7 @@
         <div class="item item-text-wrap carddikeybosluk">
                 
             <div class="bar bar-header bar-balanced">
-                <h1 class="title"> Boru & Delik Sayısına Bağlı Çap</h1>
+                <h1 class="title"> Su Hızı & Kesit Alanı </h1>
             </div><br><br><br>
         
             
@@ -182,62 +182,205 @@
             
                 
             <div class="row row1">
-                <div class="col"><h4 class="d_ort">Boru İç Çapı ( R )
+                <div class="col"><h4 class="d_ort">Debi 
                 </h4> </div>
-                <div class="col ">mm</div>
-                <div class="col"> <input class="input3" type="number" ng-model="ic_r_1"></div>
+                <div class="col col3 ">(m<sup>3</sup>/gün)</div>
+                <div class="col"> <input class="input3" type="number" ng-model="debi3"></div>
                 </div>
             <hr>
             <div class="row row1">
-                <div class="col"><h4 class="d_ort">Delik Adeti
-                </h4></div>
-                <div class="col">tane</div>
-                <div class="col"><input class="input3" type="number" ng-model="delik_tane"></div>
+                <div class="col"><h4 class="d_ort">Tesis Çalışma Süresi</h4></div>
+                <div class="col col3">(h)</div>
+                <div class="col"><input class="input3" type="number" ng-model="faliyetsure"></div>
             </div>
             <hr>
-                
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Boru Doluluk Oranı                
+              </h4></div>
+              <div class="col col3">%</div>
+              <div class="col"><input class="input3" type="number" ng-model="dolulukoran"></div>
+            </div>
+            <center>
+                <h5>
+                  <div style="color: red" ng-if="dolulukoran > 100">
+                      <div class="animated bounceInLeft">
+                        Oran 100'den büyük olamaz
+                    </div>
+                  </div>
+                </h5>
+            </center>
+            <hr>
+            <div class="row row1">
+              <div class="col"><h4 class="d_ort">Boru İç çapı </h4></div>
+              <div class="col col3">mm</div>
+              <div class="col"><input class="input3" type="number" ng-model="boruiccap"></div>
+            </div>
+            <hr>
+                  
                     
                     
             
-            <button class="button button-full button-positive" ng-click="cap(ic_r_1,delik_tane)">
+            <button class="button button-full button-positive" ng-click="suhiz(debi3,faliyetsure,dolulukoran,boruiccap)" 
+            ng-disabled="debi3==null || faliyetsure == null || dolulukoran==null || boruiccap == null ||dolulukoran >100 || dolulukoran<0">
             Hesapla
             </button>
-            
+            <div ng-if = "debim3sa" class= "animated fadeInLeft">
                         <div class="row row1">
-                        <div class="col"><h4 class="d_ort">Boru Kesit Alanı
-                        </h4></div>
-                        <div class="col">mm<sup>2</sup></div>
-                        <div class="col">{{boru_k_a_1}} </div>
+                            <div class="col"><h4 class="d_ort">Debi</h4></div>
+                            <div class="col col3">m<sup>3</sup>/sa</div>
+                            <div class="col">{{debim3sa}} </div>
                         </div>
                         <hr>
                         <div class="row row1">
-                        <div class="col"><h4 class="d_ort">Delik Kesit Alanı
-                        </h4></div>
-                        <div class="col">mm<sup>2</sup></div>
-                        <div class="col">{{delik_k_a_1}}</div>
+                            <div class="col"><h4 class="d_ort">Boru İç Çapı</h4></div>
+                            <div class="col col3">m</div>
+                            <div class="col">{{boruiccap2}}</div>
                         </div>
                         <hr>
                         <div class="row row1">
-                        <div class="col"><h4 class="d_ort">Min. Delik Çapı
-                        </h4></div>
-                        <div class="col">tane</div>
-                        <div class="col">{{min_cap}}</div>
+                            <div class="col"><h4 class="d_ort"> Kesit Alanı</h4></div>
+                            <div class="col col3">m<sup>2</sup></div>
+                            <div class="col">{{kesitalan}}</div>
                         </div>
                         <hr>
-                                    
+                        <div class="row row1">
+                            <div class="col"><h4 class="d_ort"> Su Hızı</h4></div>
+                            <div class="col col3">m/sn</div>
+                            <div class="col">{{suhizi}}</div>
+                        </div>
+                        <center>
+                            <h5>
+                                <div style="color: red" ng-if="suhizi > 1.5 || suhizi<0.6 " class= "ng-hide" ng-hide="suhizi==null">
+                                    <div class="animated bounceInLeft">
+                                        Su çıkış hızı 0.6 - 1.5 m/sn arası olmalıdır.	
+                                  </div>
+                                </div>
+                              </h5>
+                            </center>                        
+                          <hr>
+                      </div>             
                     </div>
                 </div>
 
         </div>
 
-</div>   
-            
-            
-        
+</div> 
 
+
+
+<li class="item item-toggle">
+   
+  <h3>Su Hızına Göre Boru Çapı</h3>
+  
+      <label class="toggle toggle-positive">
+          
+          <input type="checkbox" ng-model="boru4" ng-init="boru3=false">
+          
+              <div class="track">
+                  <div class="handle"></div>
+              </div>
+  
+      </label>
+</li>
+
+<div ng-if="boru4 == true">
+
+  <div class="card animated fadeInLeft">
+          
+      <div class="item item-text-wrap carddikeybosluk">
+              
+          <div class="bar bar-header bar-balanced">
+              <h1 class="title"> Su Hızına Göre Boru Çapı</h1>
+          </div><br><br><br>
+      
+          
+          <div class="col col1">
+          
+              
+          <div class="row row1">
+              <div class="col"><h4 class="d_ort">Debi 
+              </h4> </div>
+              <div class="col col3 ">(m<sup>3</sup>/gün)</div>
+              <div class="col"> <input class="input3" type="number" ng-model="debi5"></div>
+              </div>
+          <hr>
+          <div class="row row1">
+              <div class="col"><h4 class="d_ort">Tesis Çalışma Süresi</h4></div>
+              <div class="col col3">(h)</div>
+              <div class="col"><input class="input3" type="number" ng-model="faliyetsure1"></div>
+          </div>
+          <hr>
+          <div class="row row1">
+            <div class="col"><h4 class="d_ort">Boru Doluluk Oranı                
+            </h4></div>
+            <div class="col col3">%</div>
+            <div class="col"><input class="input3" type="number" ng-model="dolulukoran1"></div>
+          </div>
+          <center>
+              <h5>
+                <div style="color: red" ng-if="dolulukoran1 > 100">
+                    <div class="animated bounceInLeft">
+                      Oran 100'den büyük olamaz
+                  </div>
+                </div>
+              </h5>
+          </center>
+          <hr>
+          <div class="row row1">
+            <div class="col"><h4 class="d_ort">Su Hızı  </h4></div>
+            <div class="col col3">m/sn </div>
+            <div class="col"><input class="input3" type="number" ng-model="suhiz1"></div>
+          </div>
+          <center>
+          <h5>
+              <div style="color: red" ng-if="suhiz1 > 1.5 || suhiz1<0.6 " class= "ng-hide" ng-hide="suhiz1==null">
+                  <div class="animated bounceInLeft">
+                      *Su çıkış hızı 0.6 - 1.5 m/sn arası olmalıdır.	
+                </div>
+              </div>
+            </h5>
+          </center>
+          <hr>   
+          
+          <button class="button button-full button-positive" ng-click="boruhiz(debi5,faliyetsure1,dolulukoran1,suhiz1)" 
+          ng-disabled="debi5==null || faliyetsure1 == null || dolulukoran1==null || suhiz1 == null ||dolulukoran1 >100 || dolulukoran1<0">
+          Hesapla
+          </button>
+          <div ng-if = "debim3sa1" class= "animated fadeInLeft">
+                      <div class="row row1">
+                          <div class="col"><h4 class="d_ort">Debi</h4></div>
+                          <div class="col col3">m<sup>3</sup>/sa</div>
+                          <div class="col">{{debim3sa1}} </div>
+                      </div>
+                      <hr>
+                      <div class="row row1">
+                          <div class="col"><h4 class="d_ort">Boru İç Çapı</h4></div>
+                          <div class="col col3">m</div>
+                          <div class="col">{{borucapm}}</div>
+                      </div>
+                      <hr>
+                      <div class="row row1">
+                          <div class="col"><h4 class="d_ort"> Boru İç Çap</h4></div>
+                          <div class="col col3">mm</div>
+                          <div class="col">{{borucapmm}}</div>
+                      </div>
+                      <hr>
+                      <div class="row row1">
+                          <div class="col"><h4 class="d_ort"> Kesit Alanı</h4></div>
+                          <div class="col col3">m<sup>2</sup></div>
+                          <div class="col">{{kesitalan1}}</div>
+                      </div>
+                      <hr>
+                    </div>             
+                  </div>
+              </div>
+
+      </div>
+
+</div>           
+      
         
-        
-        <br><center><button class="button button-positive animated rollIn" ng-click = "boru()">Tank Tipi ve bekletme süreleri</button></center></br>
+<br><center><button class="button button-positive animated rollIn" ng-click = "boru()">Tank Tipi ve bekletme süreleri</button></center></br>
 
 
 

@@ -289,9 +289,27 @@ $scope.cap = function (ic_r_1,delik_tane) {
   delik_k_a_1 = boru_k_a_1/delik_tane
   $scope.delik_k_a_1 = Number(delik_k_a_1).toFixed(2)
   $scope.min_cap = Number(Math.pow(4*delik_k_a_1/Math.PI,0.5)).toFixed(2)
-
 }
-
+$scope.suhiz = function(debi3,faliyetsure,dolulukoran,boruiccap){
+  debisa = debi3/faliyetsure
+  $scope.debim3sa = Number(debisa).toFixed(2)
+  boruiccap1 = boruiccap/1000
+  $scope.boruiccap2 = Number(boruiccap1).toFixed(2) 
+  kesitalan = Math.PI*boruiccap1*boruiccap1/4
+  $scope.kesitalan = Number(kesitalan).toFixed(6)
+  suhizi = debisa/(kesitalan*(dolulukoran/100))/3600
+  $scope.suhizi = Number(suhizi).toFixed(4)
+  
+}
+$scope.boruhiz = function(debi5,faliyetsure1,dolulukoran1,suhiz1){
+  debisa1 = debi5/faliyetsure1
+  $scope.debim3sa1 = Number(debisa1).toFixed(2)
+  kesitalan1 = debisa1/(36*suhiz1*dolulukoran1)
+  $scope.kesitalan1 = Number(kesitalan1).toFixed(6)
+  borucapm = Math.pow((4*kesitalan1)/Math.PI,0.5)
+  $scope.borucapm = Number(borucapm).toFixed(6)
+  $scope.borucapmm = Number(borucapm*1000).toFixed(2)
+}
 
 //$scope.deneme = function(){
 
