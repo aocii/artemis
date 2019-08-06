@@ -13,9 +13,9 @@
      </label>
 </li>
 
-<div  ng-if="havuz == true" class="animated fadeInLeft"> 
+<div  ng-if="havuz == true" > 
 
- <div class="card">
+ <div class="card animated fadeInLeft">
    <div class="item item-text-wrap carddikeybosluk">
        <div class="bar bar-header bar-balanced">
            <h1 class="title">Havuz / Tank Boyutlandırma </h1>
@@ -239,13 +239,13 @@ Hesapla
             <div class="col col-30"><h3 class="d_ort">En</h3></div>
             <div class="col col-25 col3">m</div>
             <div class="col col-45">
-              <input class="input4" type="number" ng-model="en_swp">                          
+              <input class="input4" type="number" ng-model="en_drtgn">                          
             </div>
         </div>
-         <div ng-if="boy_swp && en_swp">
+         <div ng-if="en_drtgn && boy_drtgn">
           <div class="item range range-positive animated fadeInLeft">
-            {{ust2}}
-            <input  type="range" name="volume" min="0" max="100"  ng-Disabled= "en_swp == null || boy_swp " ng-model="swipe2" ng-change="swp2(swipe2,kare_yuks)">
+            {{ust_en}}
+            <input  type="range" name="volume" min="0" max="100"  ng-Disabled= "boy_drtgn == null || en_drtgn == null" ng-model="$parent.en_swp" ng-change="swp_drtg(en_swp,boy_swp,en_drtgn,boy_drtgn)">
           </div>
         </div> 
 
@@ -254,10 +254,10 @@ Hesapla
        <div class="col col-25 col3">m</div>
        <div class="col col-45">
            <div class="row rowbosluksuz">
-               <div class="col col2"><input class="input4" type="number" ng-model="boy_swp"> </div>
+               <div class="col col2"><input class="input4" type="number" ng-model="boy_drtgn"> </div>
                <div class="col col2">
                  <div >
-                   <button  class="button button-small button-positive" ng-Disabled="boy_swp && en_swp" ng-click="swp2(swipe2,kare_yuks)">
+                   <button  class="button button-small button-positive" ng-Disabled="boy_drtgn == null || en_drtgn == null" ng-click="swp_drtg(en_swp,boy_swp,en_drtgn,boy_drtgn)">
                      Hesapla                                        
                    </button>
                  </div> 
@@ -266,19 +266,19 @@ Hesapla
        </div>
    </div>
 
-   <div ng-if="boy_swp && en_swp">
+   <div ng-if="boy_drtgn && en_drtgn">
      <div class="item range range-positive animated fadeInLeft">
-       {{ust2}}
-       <input  type="range" name="volume" min="0" max="100"  ng-Disabled= "kare_h_cm == null" ng-model="swipe2" ng-change="swp2(swipe2,kare_yuks)">
+       {{ust_boy}}
+       <input  type="range" name="volume" min="0" max="100"  ng-Disabled= "boy_drtgn == null || en_drtgn == null" ng-model="$parent.boy_swp" ng-change="swp_drtg(en_swp,boy_swp,en_drtgn,boy_drtgn)">
      </div>
    </div> 
 
 
-<div ng-if="kare_h_cm"> 
+<div ng-if="swp_h"> 
  <div class="row row1 animated fadeInLeft">
    <div class="col"><h4 class="d_ort">Kare Yükseklik</h4></div>
    <div class="col">cm</div>
-   <div class="col">{{kare_h_cm}} </div>
+   <div class="col">{{swp_h}} </div>
  </div>
  <hr>
 </div>
@@ -327,12 +327,12 @@ Hesapla
 
 <div  ng-if="g == 1 && a == true "> 
    
-    <div class="card animated fadeInDown">
+    <div class="card animated fadeInLeft">
       <div class="item item-text-wrap">
    
         <h3>Yüksekliğe bağlı yarıçap</h3>
             <div class="row">
-              <div class="col">Hacim (m3)</div>
+              <div class="col">Hacim (m<sup>3</sup>)</div>
               <div class="col">Yükseklik (cm)</div>
               <div class="col"></div>
             </div>
@@ -361,12 +361,12 @@ Hesapla
 
 
 <div  ng-if="g == 2 && a == true ">  
-    <div class="card animated fadeInDown">
+    <div class="card animated fadeInLeft">
       <div class="item item-text-wrap">
    
         <h3>Yarıçapa bağlı yükseklik</h3>
             <div class="row">
-              <div class="col">Hacim (m3)</div>
+              <div class="col">Hacim (m<sup>3</sup>)</div>
               <div class="col">Yarıçap (m)</div>
               <div class="col"></div>
             </div>
@@ -393,7 +393,7 @@ Hesapla
 
 
 <div  ng-if="g == 3 && a == true " >  
-    <div class="card animated fadeInDown">
+    <div class="card animated fadeInLeft">
       <div class="item item-text-wrap">
    
         <h3>Yarıçap&yüksekliğe bağlı hacim</h3>
@@ -413,7 +413,7 @@ Hesapla
             <hr>
 
             <div class="row">
-              <div class="col">Hacim (m3)</div>
+              <div class="col">Hacim (m<sup>3</sup>)</div>
               <div class="col">{{v_m3}}</div>
             </div>
             
@@ -445,12 +445,12 @@ Hesapla
 
 <div  ng-if="drtgn == 1 && b == true ">
 
-    <div class="card animated fadeInDown">
+    <div class="card animated fadeInLeft">
       <div class="item item-text-wrap">
    
         <h3>En&boy&hacime bağlı yükseklik </h3>
             <div class="row">
-              <div class="col">Hacim (m3)</div>
+              <div class="col">Hacim (m<sup>3</sup>)</div>
               <div class="col">En (m)</div>
               <div class="col">Boy (m)</div>
               <div class="col"></div>
@@ -478,7 +478,7 @@ Hesapla
 
 <div  ng-if="drtgn == 2 && b == true ">  
 
-    <div class="card animated fadeInDown">
+    <div class="card animated fadeInLeft">
       <div class="item item-text-wrap">
    
         <h3>En&boy&yüksekliğe bağlı hacim </h3>
@@ -500,7 +500,7 @@ Hesapla
             <hr>
 
             <div class="row">
-              <div class="col">Hacim (m3)</div>
+              <div class="col">Hacim (m<sup>3</sup>)</div>
               <div class="col">{{drtgn_v}}</div>
             </div>
             

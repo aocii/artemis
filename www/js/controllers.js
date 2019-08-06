@@ -44,6 +44,28 @@ $scope.ust1_std = Number(ust1_std).toFixed(2)
   $scope.h_m_std = Number(h6).toFixed(2)
   $scope.h_cm_std = Number(h6*100).toFixed(2)
 }
+$scope.swp_drtg = function(en_swp,boy_swp,en_drtgn,boy_drtgn)  {
+  if(en_swp == null && boy_swp == null){
+    boy_swp = 100/3
+    en_swp = 100/3
+    console.log("1")
+  }
+  if (en_swp == null &&  boy_swp != null){
+    en_swp = 100/3
+    console.log("2")
+  }
+  if(boy_swp == null && en_swp != null){
+    boy_swp = 100/3
+    console.log("3")
+  }
+ 
+
+  ust_boy = (boy_drtgn*3)*(boy_swp/100)
+  ust_en = (en_drtgn*3)*(en_swp/100)
+  $scope.swp_h = Number($scope.e_v_hvz/(ust_en*ust_boy)).toFixed(2) 
+  $scope.ust_boy = Number(ust_boy).toFixed(2)
+  $scope.ust_en = Number(ust_en).toFixed(2)
+}
 
 $scope.sil1 = function(v2,rm){
   $scope.h6 = v2/(rm*rm*3.1416)
