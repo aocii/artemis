@@ -28,10 +28,23 @@ $scope.showAlertcod = function() {
    })
  }
 
-$scope.sil = function (h1,v1){
-  $scope.r_m = Number((Math.pow((v1/3.1416)*(h1/100),0.5))*10).toFixed(2)
-  $scope.r_cm = Number($scope.r_m*100 ).toFixed(2)
+$scope.swp_std= function(swipe_std,sil_yuk_std){
+  if(swipe_std == null){swipe_std=100/3}
+  ust_std = (sil_yuk_std*3)*(swipe_std/100)
+  $scope.ust_std= Number(ust_std).toFixed(2)
+  r_m_std = (Math.pow($scope.e_v_hvz/(Math.PI*ust_std),0.5))
+  $scope.r_m_std = Number(r_m_std).toFixed(2)
+  $scope.r_cm_std = Number(r_m_std*100 ).toFixed(2)
 }
+$scope.swp1_std = function (swipe1_std,cap1_std){
+  if(swipe1_std == null){swipe1_std=100/3}
+  ust1_std = (cap1_std*3)*(swipe1_std/100)
+$scope.ust1_std = Number(ust1_std).toFixed(2)
+  h6 = $scope.e_v_hvz/(ust1_std*ust1_std*Math.PI)
+  $scope.h_m_std = Number(h6).toFixed(2)
+  $scope.h_cm_std = Number(h6*100).toFixed(2)
+}
+
 $scope.sil1 = function(v2,rm){
   $scope.h6 = v2/(rm*rm*3.1416)
   $scope.h_m = Number($scope.h6).toFixed(2)
@@ -54,8 +67,6 @@ $scope.hvz = function(q,e,s,d){
   }else{ 
     $scope.v_hvz = Number(q*s).toFixed(2)  
     $scope.e_v_hvz = Number($scope.v_hvz*((e/100)+1)).toFixed(2) }
-
-
 }
 $scope.konikhacim = function(debi_k,t_sa,t_dk,k_oran,emniyet_k){
   if(k_oran>100 || k_oran<0 ||emniyet_k>100 || emniyet_k< 0)
