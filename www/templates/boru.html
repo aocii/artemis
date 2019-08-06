@@ -42,10 +42,11 @@
                           
                      
               
-              <button class="button button-full button-positive" ng-click="yuks(ic_r,delik_r)" ng-disabled="ic_r==null || delik_r == null">
-              Hesapla
-              </button>
-              <div ng-if="boru_k_a" class="animated fadeInLeft">
+                    <button class="button button-full button-positive" ng-click="yuks(ic_r,delik_r)" ng-disabled="ic_r==null || delik_r == null">
+                    Hesapla
+                    </button>
+                    <div ng-if="boru_k_a"> 
+                      <div class="animated fadeInLeft">
                           <div class="row row1">
                             <div class="col"><h4 class="d_ort">Boru Kesit Alanı
                             </h4></div>
@@ -67,7 +68,8 @@
                             <div class="col">{{tane_delik }}</div>
                           </div>
                           <hr>
-                        </div>           
+                        </div>
+                      </div>           
                       </div>
                   </div>
               </div>
@@ -122,7 +124,8 @@
                       <button class="button button-full button-positive" ng-click="cap(ic_r_1,delik_tane)" ng-disabled = "ic_r_1 == null || delik_tane== null">
                       Hesapla
                       </button>
-                      <div ng-if="boru_k_a_1" class="animated fadeInLeft">
+                      <div ng-if="boru_k_a_1"> 
+                        <div class="animated fadeInLeft">
                                   <div class="row row1">
                                     <div class="col"><h4 class="d_ort">Boru Kesit Alanı
                                     </h4></div>
@@ -144,7 +147,8 @@
                                     <div class="col">{{min_cap}}</div>
                                   </div>
                                   <hr>
-                                </div>          
+                                </div>
+                              </div>          
                               </div>
                           </div>
             
@@ -224,7 +228,8 @@
             ng-disabled="debi3==null || faliyetsure == null || dolulukoran==null || boruiccap == null ||dolulukoran >100 || dolulukoran<0">
             Hesapla
             </button>
-            <div ng-if = "debim3sa" class= "animated fadeInLeft">
+            <div ng-if = "debim3sa">
+               <div class= "animated fadeInLeft">
                         <div class="row row1">
                             <div class="col"><h4 class="d_ort">Debi</h4></div>
                             <div class="col col3">m<sup>3</sup>/sa</div>
@@ -258,7 +263,8 @@
                               </h5>
                             </center>                        
                           <hr>
-                      </div>             
+                      </div>  
+                    </div>            
                     </div>
                 </div>
 
@@ -346,7 +352,8 @@
           ng-disabled="debi5==null || faliyetsure1 == null || dolulukoran1==null || suhiz1 == null ||dolulukoran1 >100 || dolulukoran1<0">
           Hesapla
           </button>
-          <div ng-if = "debim3sa1" class= "animated fadeInLeft">
+          <div ng-if = "debim3sa1"> 
+            <div class= "animated fadeInLeft">
                       <div class="row row1">
                           <div class="col"><h4 class="d_ort">Debi</h4></div>
                           <div class="col col3">m<sup>3</sup>/sa</div>
@@ -371,7 +378,8 @@
                           <div class="col">{{kesitalan1}}</div>
                       </div>
                       <hr>
-                    </div>             
+                    </div> 
+                  </div>            
                   </div>
               </div>
 

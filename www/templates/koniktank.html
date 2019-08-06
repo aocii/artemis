@@ -91,38 +91,38 @@
 ng-model="deneme" ng-init="deneme=false" ng-Disabled= "k_oran>100 || emniyet_k>100 || k_oran == null || emniyet_k == null || debi_k == null || (t_sa == null && t_dk==null) " >
 Hesapla
 </button>
-            <div ng-if="c_v" class="animated fadeInLeft">
+            <div ng-if="c_v"> 
+              <div class="animated fadeInLeft">
               <div class="row row1">
                 <div class="col"><h4 class="d_ort">Hacim </h4></div>
                 <div class="col col3">(m<sup>3</sup>/sa)</div>
                 <div class="col">{{c_v}} </div>
               </div>
               <hr>
-            </div> 
-            <div ng-if="c_v" class="animated fadeInLeft"> 
+            
               <div class="row row1">
                 <div class="col"><h4 class="d_ort">Emniyetli hacim</h4></div>
                 <div class="col col3">(m<sup>3</sup>/sa)</div>
                 <div class="col">{{c_e_v}}</div>
               </div>
               <hr>
-            </div> 
-            <div ng-if = "c_v" class="animated fadeInLeft"> 
+             
               <div class="row row1">
                 <div class="col"><h4 class="d_ort">Silindir Hacim</h4></div>
                 <div class="col col3">(m<sup>3</sup>/sa)</div>
                 <div class="col">{{c_s_v}}</div>
               </div>
               <hr>
-            </div> 
-            <div ng-if="c_v" class="animated fadeInLeft"> 
+            
+            
               <div class="row row1">
                 <div class="col"><h4 class="d_ort">Konik Hacim</h4></div>
                 <div class="col col3">(m<sup>3</sup>/sa)</div>
                 <div class="col">{{c_k_v}}</div>
               </div>
               <hr> 
-            </div> 
+            </div>
+          </div> 
           </div>
            <!--**********************************************************************************--> 
             
@@ -564,17 +564,24 @@ Hesapla
               <div class="col col3">%</div>
               <div class="col"><input class="input3" type="number" ng-model="konik_oran"></div>
             </div>
-            <center> <h5><div style="color: red" ng-if="konik_oran < 10" class= "ng-hide" ng-hide="konik_oran==null">
-                <div class="animated bounceInLeft">
-                  Konik Oranı Literatürde en az %10
-                </div>
-              </div></h5></center>
-              <center> <h5><div style="color: red" ng-if="konik_oran > 100">
+            <center>
+              <h5>
+                <div style="color: red" ng-if="konik_oran < 10" class= "ng-hide" ng-hide="konik_oran==null">
                   <div class="animated bounceInLeft">
-                    Oran 100'den büyük olamaz
+                    Konik Oranı Literatürde en az %10
                   </div>
-                </div></h5></center>
-
+                </div>
+              </h5>
+            </center>
+              <center>
+                <h5>
+                  <div style="color: red" ng-if="konik_oran > 100">
+                    <div class="animated bounceInLeft">
+                      Oran 100'den büyük olamaz
+                    </div>
+                </div>
+              </h5>
+            </center>
             <hr>
           <div class="row row1">
             <div class="col"><h4 class="d_ort">Silindir Yükseklik</h4></div>
@@ -590,7 +597,8 @@ Hesapla
         ng-Disabled="silindir_h == null || konik_oran == null ||konik_oran>100 || toplam_hacim == null">
        Hesapla
        </button>
-       <div ng-if="sil_v" class="animated fadeInLeft">
+       <div ng-if="sil_v">
+         <div class="animated fadeInLeft">
                    <div class="row row1">
                      <div class="col"><h4 class="d_ort">Silindir hacim</h4></div>
                      <div class="col col3">(m<sup>3</sup>/sa)</div>
@@ -644,6 +652,7 @@ Hesapla
                   </center>
                   <hr>          
                </div>
+              </div> 
            </div>
        </div>
    </div>
@@ -702,7 +711,8 @@ Hesapla
          ng-disabled="yaricap==null||konik_oran1==null||toplam_hacim1==null||konik_oran1>100">
          Hesapla
          </button>
-         <div ng-if="sil_hcm" class= "animated fadeInLeft">         
+         <div ng-if="sil_hcm"> 
+           <div class= "animated fadeInLeft">         
               <div class="row row1">
                 <div class="col"><h4 class="d_ort">Silindir hacim</h4></div>
                 <div class="col col3">(m<sup>3</sup>/sa)</div>
@@ -755,7 +765,8 @@ Hesapla
                 </h5>
               </center>
             <hr>
-        </div>          
+        </div>
+      </div>          
       </div>
   </div>
 </div>
@@ -801,7 +812,8 @@ Hesapla
            ng-disabled="k_h_5==null||s_h_5==null||r_5==null">
            Hesapla
            </button>
-           <div ng-if="rcm_5" class="animated fadeInLeft">
+           <div ng-if="rcm_5"> 
+             <div class="animated fadeInLeft">
                        <div class="row row1">
                          <div class="col"><h4 class="d_ort">Yarıçap</h4></div>
                          <div class="col col3">cm</div>
@@ -854,7 +866,8 @@ Hesapla
                           </h5>
                         </center> 
                       <hr>
-                    </div>          
+                    </div>
+                  </div>          
                    </div>
                </div>
            </div>
@@ -942,7 +955,8 @@ Hesapla
       ng-disabled="tplm_v==null||knk_orn==null||h_kare==null||knk_orn>100">
       Hesapla
       </button>
-      <div ng-if="kare_v" class="animated fadeInLeft">
+      <div ng-if="kare_v"> 
+        <div class="animated fadeInLeft">
                   <div class="row row1">
                     <div class="col"><h4 class="d_ort">Kare Hacim</h4></div>
                     <div class="col col3">(m<sup>3</sup>/sa)</div>
@@ -994,7 +1008,8 @@ Hesapla
                   </h5>
               </center>  
               <hr> 
-          </div>           
+          </div>
+        </div>           
         </div>
     </div>
 </div>
@@ -1053,7 +1068,8 @@ Hesapla
         Hesapla
         </button>
         
-          <div ng-if="v_kare" class="animated fadeInLeft">
+          <div ng-if="v_kare"> 
+            <div class="animated fadeInLeft">
             <div class="row row1">
               <div class="col"><h4 class="d_ort">Kare Hacim</h4></div>
               <div class="col col3">(m<sup>3</sup>/sa)</div>
@@ -1105,7 +1121,8 @@ Hesapla
             </h5>
         </center> 
         <hr> 
-      </div>           
+      </div>
+    </div>           
     </div>
   </div>
 </div>
@@ -1145,7 +1162,8 @@ Hesapla
     ng-disabled = "kenar_l_5==null || kare_h_5 == null || przm_h_5 == null">Hesapla 
     </button>
     
-    <div ng-if="kare_knr_l" class="animated fadeInLeft">
+    <div ng-if="kare_knr_l"> 
+      <div class="animated fadeInLeft">
                 <div class="row row1">
                   <div class="col"><h4 class="d_ort">Kare kenar boyu</h4></div>
                   <div class="col">m</div>
@@ -1197,7 +1215,8 @@ Hesapla
                 </h5>
             </center> 
             <hr> 
-          </div>           
+          </div> 
+        </div>          
         </div>
     </div>
 </div>

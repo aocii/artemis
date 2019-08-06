@@ -58,8 +58,6 @@ $scope.swp_drtg = function(en_swp,boy_swp,en_drtgn,boy_drtgn)  {
     boy_swp = 100/3
     console.log("3")
   }
- 
-
   ust_boy = (boy_drtgn*3)*(boy_swp/100)
   ust_en = (en_drtgn*3)*(en_swp/100)
   $scope.swp_h = Number($scope.e_v_hvz/(ust_en*ust_boy)).toFixed(2) 
@@ -67,6 +65,11 @@ $scope.swp_drtg = function(en_swp,boy_swp,en_drtgn,boy_drtgn)  {
   $scope.ust_en = Number(ust_en).toFixed(2)
 }
 
+$scope.h_to_r = function (g1_v,g1_h){
+  r = (Math.pow(g1_v/(Math.PI*g1_h),0.5))
+  $scope.g1_r_m = Number(r).toFixed(2)
+  $scope.g1_r_cm = Number(r*100 ).toFixed(2)
+}
 $scope.sil1 = function(v2,rm){
   $scope.h6 = v2/(rm*rm*3.1416)
   $scope.h_m = Number($scope.h6).toFixed(2)

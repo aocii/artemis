@@ -72,22 +72,23 @@
 ng-model="deneme" ng-init="deneme=false" ng-Disabled= "e>100 || e == null || q == null ||  (s == null && d==null) " >
 Hesapla
 </button>
-         <div ng-if="v_hvz" class="animated fadeInLeft">
+         <div ng-if="v_hvz">
+           <div class="animated fadeInLeft">
            <div class="row row1">
              <div class="col"><h4 class="d_ort">Hacim </h4></div>
              <div class="col col3">(m<sup>3</sup>/sa)</div>
              <div class="col">{{v_hvz}} </div>
            </div>
            <hr>
-         </div> 
-         <div ng-if="v_hvz" class="animated fadeInLeft"> 
+
            <div class="row row1">
              <div class="col"><h4 class="d_ort">Emniyetli hacim</h4></div>
              <div class="col col3">(m<sup>3</sup>/sa)</div>
              <div class="col">{{e_v_hvz}}</div>
            </div>
            <hr>
-         </div> 
+         </div>
+        </div> 
           
        </div>
         <!--**********************************************************************************--> 
@@ -339,20 +340,21 @@ Hesapla
 
 
             <div class="row">
-             <div class="col"><input class="input3" type="number" ng-model="v1"></div>
-             <div class="col"><input class="input3" type="number" ng-model="h_cm" ></div>
-             <div class="col"><button class="button button-small button-positive" ng-click="sil(h_cm,v1)">Hesapla</button></div>
+             <div class="col"><input class="input3" type="number" ng-model="g1_v"></div>
+             <div class="col"><input class="input3" type="number" ng-model="g1_h" ></div>
+             <div class="col"><button class="button button-small button-positive" ng-click="h_to_r(g1_v,g1_h)">Hesapla</button></div>
              </div>
 
-            <hr>
-
-            <div class="row">
-              <div class="col">yarıçap (m)</div>
-              <div class="col">{{r_m}}</div>
-              <div class="col">yarıçap (cm) </div>
-              <div class="col">{{r_cm}}</div>
-            </div>
             
+<div ng-if = "g1_r_m">
+    <hr>
+            <div class="row animated fadeInLeft">
+              <div class="col">yarıçap (m)</div>
+              <div class="col">{{g1_r_m}}</div>
+              <div class="col">yarıçap (cm) </div>
+              <div class="col">{{g1_r_cm}}</div>
+            </div>
+          </div>
       </div>
     </div>
 </div>
