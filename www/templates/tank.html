@@ -379,16 +379,15 @@ Hesapla
              <div class="col"><input class="input3" type="number" ng-model="rm" ></div>
              <div class="col"><button class="button button-small button-positive" ng-click="sil1(v2,rm)">Hesapla</button></div>
              </div>
-
+       <div ng-if="h_m">
             <hr>
-
             <div class="row">
               <div class="col">yarıçap (m)</div>
               <div class="col">{{h_m}}</div>
               <div class="col">yarıçap (cm) </div>
               <div class="col">{{h_cm}}</div>
             </div>
-            
+          </div>            
       </div>
     </div>
 </div>
@@ -412,12 +411,13 @@ Hesapla
              <div class="col"><button class="button button-small button-positive" ng-click="sil2(r1,h2)">Hesapla</button></div>
              </div>
 
+          <div ng-if="v_m3">
             <hr>
-
             <div class="row">
               <div class="col">Hacim (m<sup>3</sup>)</div>
               <div class="col">{{v_m3}}</div>
             </div>
+          </div>
             
       </div>
     </div>
@@ -466,13 +466,13 @@ Hesapla
              <div class="col"><button class="button button-small button-positive" ng-click="drtg(hacim,en,boy)">Hesapla</button></div>
              </div>
 
+          <div ng-if="drtgn_h">
             <hr>
-
             <div class="row">
               <div class="col">Yükseklik (m)</div>
               <div class="col">{{drtgn_h}}</div>
             </div>
-            
+          </div>            
       </div>
     </div>
 
@@ -499,12 +499,13 @@ Hesapla
              <div class="col"><button class="button button-small button-positive" ng-click="dortgen1(en1,boy1,d_h)">Hesapla</button></div>
              </div>
 
+          <div ng-if="drtgn_v">
             <hr>
-
             <div class="row">
               <div class="col">Hacim (m<sup>3</sup>)</div>
               <div class="col">{{drtgn_v}}</div>
             </div>
+          </div>
             
       </div>
     </div>
