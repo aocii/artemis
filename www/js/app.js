@@ -93,6 +93,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+    .state('app.lab', {
+      url: '/lab',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/lab.html'
+        }
+      }
+    })
     .state('app.playlists', {
       url: '/playlists',
       views: {

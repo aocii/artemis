@@ -1,0 +1,132 @@
+<ion-view view-title="Lab Hesapları">
+    <ion-content>
+      
+        
+              
+          
+          <li class="item item-toggle">
+               <h3>Konik Havuz / Tank Boyutlandırma   </h3>
+               <label class="toggle toggle-positive">
+                 <input type="checkbox" ng-model="k_havuz" ng-init="havuz=false">
+                 <div class="track">
+                   <div class="handle"></div>
+                  </div>
+               </label>
+          </li>
+          
+          <div  ng-if="k_havuz == true"> 
+             
+              <div class="card animated fadeInDown ">
+                <div class="item item-text-wrap carddikeybosluk">
+                    <div class="bar bar-header bar-balanced">
+                        <h1 class="title">Konik Havuz / Tank Boyutlandırma </h1>
+                  </div><br><br><br>
+             
+          <div class="col col1"></div>
+          
+          Hazırlamak istediğiniz hacimi ml cinsinden satırlarda bulunan ilgili inputa giriniz.
+          <hr>
+                      <div class="row row1">
+                          
+                        <div class="col"><h4 class="d_ort">%30 BaCl<sub>2</sub></h4> </div>
+                        <div class="col col3">ml</div>
+                        <div class="col"><input class="input3" type="number" ng-model="bacl2"></div>
+                        <div class="col">
+                            <button class="button button-small button-positive" ng-click="bacl2_hes(bacl2)" 
+                            ng-init="" ng-Disabled= "bacl2 == null " >
+                            Hesapla
+                            </button>
+                        </div>
+                      </div>
+                     
+                      <center>
+                            <h3>
+                              <div style="color: black" ng-if="bacl2_cvp">
+                                <div class="animated bounceInLeft">
+                                  %30luk BaCl<sub>2</sub> çözeltisi için {{bacl2_cvp}} gram toz kullanınız. 
+                                </div>
+                              </div>
+                            </h3>
+                          </center>
+                          <hr>
+
+                      <div class="row row1">
+                          
+                            <div class="col"><h4 class="d_ort">%25 Kireç</h4> </div>
+                            <div class="col col3">ml</div>
+                            <div class="col"><input class="input3" type="number" ng-model="kirec"></div>
+                            <div class="col">
+                                <button class="button button-small button-positive" ng-click="kirec_hes(kirec)" 
+                                ng-init="" ng-Disabled= "kirec == null " >
+                                Hesapla
+                                </button>
+                            </div>
+                          </div>
+                         
+                          
+                          <center>
+                                <h3>
+                                  <div style="color: black" ng-if="kirec_cvp">
+                                    <div class="animated bounceInLeft">
+                                            %25 Kireç çözeltisi için {{kirec_cvp}} gram toz kullanınız. 
+                                    </div>
+                                  </div>
+                                </h3>
+                              </center>
+                              <hr>
+
+                          <div class="row row1">
+                          
+                                <div class="col"><h4 class="d_ort">%30 SMBS</h4> </div>
+                                <div class="col col3">ml</div>
+                                <div class="col"><input class="input3" type="number" ng-model="smbs"></div>
+                                <div class="col">
+                                    <button class="button button-small button-positive" ng-click="smbs_hes(smbs)" 
+                                    ng-init="" ng-Disabled= "smbs == null  " >
+                                    Hesapla
+                                    </button>
+                                </div>
+                              </div>
+                              <center>
+                                    <h3>
+                                      <div style="color: black" ng-if="smbs_cvp">
+                                        <div class="animated bounceInLeft">
+                                          %30luk smbs çözeltisi için {{smbs_cvp}} gram toz kullanınız. 
+                                        </div>
+                                      </div>
+                                    </h3>
+                                  </center>
+                              <hr>
+                              <div class="row row1">
+                          
+                                    <div class="col"><h4 class="d_ort">Polieletrolit</h4> </div>
+                                    <div class="col col3">ml</div>
+                                    <div class="col"><input class="input3" type="number" ng-model="pl"></div>
+                                    <div class="col">
+                                        <button class="button button-small button-positive" ng-click="pl_hes(pl)" 
+                                        ng-init="" ng-Disabled= "pl == null " >
+                                        Hesapla
+                                        </button>
+                                    </div>
+                                  </div>
+                                  <center>
+                                        <h3>
+                                          <div style="color: black" ng-if="pl_cvp">
+                                            <div class="animated bounceInLeft">
+                                                    Polieletrolit çözeltisi için {{pl_cvp}} gram toz kullanınız. 
+                                            </div>
+                                          </div>
+                                        </h3>
+                                      </center>
+                                  <hr>                      
+                        </div>          
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+
+    </ion-content>
+  </ion-view>
+  

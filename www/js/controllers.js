@@ -346,6 +346,23 @@ $scope.boruhiz = function(debi5,faliyetsure1,dolulukoran1,suhiz1){
   $scope.borucapm = Number(borucapm).toFixed(6)
   $scope.borucapmm = Number(borucapm*1000).toFixed(2)
 }
+$scope.bacl2_hes= function(bacl2) {
+  bacl2_cvp = bacl2*0.3
+  $scope.bacl2_cvp = Number(bacl2_cvp).toFixed(2)
+  }
+$scope.kirec_hes= function(kirec) {
+  kirec_cvp = kirec*0.25
+  $scope.kirec_cvp = Number(kirec_cvp).toFixed(2)
+  }
+$scope.smbs_hes= function(smbs) {
+  smbs_cvp = smbs*0.3
+  $scope.smbs_cvp = Number(smbs_cvp).toFixed(2)
+  }
+$scope.pl_hes= function(pl) {
+  pl_cvp = pl*0.3
+  $scope.pl_cvp = Number(pl_cvp).toFixed(2)
+  }
+
 
 //$scope.deneme = function(){
 
@@ -405,7 +422,8 @@ if(xiii >100 || xiii < 0 ) {
     { title: 'Standart Tank Hacim Hesabı ', adres: 'tank', id: 1 },
     { title: 'Konik Tabanlı Tank Hacim Hesabı', adres:'koniktank', id: 2 },
     { title: 'Boru Delik Çap&Hız Hesabı', adres:'boru', id: 3 },
-   { title: 'Biz Kimiz?',adres: 'tanitim', id: 4 }
+    { title: 'Labratuvar Hesapları',adres: 'lab', id: 4 },
+    { title: 'Biz Kimiz?',adres: 'tanitim', id: 5 }
   ];
 })
 
