@@ -1,22 +1,22 @@
-<ion-view view-title="Lab Hesapları">
-    <ion-content>
+<ion-view view-title="Laboratuvar Hesapları">
+    <ion-content class="animated fadeInDown">
       
         
               
           
           <li class="item item-toggle">
-               <h3>Konik Havuz / Tank Boyutlandırma   </h3>
+               <h3>Çözelti Hazırlama </h3>
                <label class="toggle toggle-positive">
-                 <input type="checkbox" ng-model="k_havuz" ng-init="havuz=false">
+                 <input type="checkbox" ng-model="lab_toggle" ng-init="lab_toggle=false">
                  <div class="track">
                    <div class="handle"></div>
                   </div>
                </label>
           </li>
           
-          <div  ng-if="k_havuz == true"> 
+          <div  ng-if="lab_toggle == true"> 
              
-              <div class="card animated fadeInDown ">
+              <div class="card animated fadeInLeft ">
                 <div class="item item-text-wrap carddikeybosluk">
                     <div class="bar bar-header bar-balanced">
                         <h1 class="title">Konik Havuz / Tank Boyutlandırma </h1>
@@ -118,12 +118,154 @@
                                           </div>
                                         </h3>
                                       </center>
-                                  <hr>                      
+                                  <hr>
+                                 
+                                              
+                                                      
                         </div>          
                     </div>
                 </div>
             </div>
           </div>
+
+<!--*****************************************************************************************************-->
+
+<li class="item item-toggle">
+    <h3>FeCl<sub>3</sub>.6h<sub>2</sub>0 tuzu mikarı ve su mikarı</h3>
+    <label class="toggle toggle-positive">
+      <input type="checkbox" ng-model="tuz_toggle" ng-init="tuz_toggle=false">
+      <div class="track">
+        <div class="handle"></div>
+       </div>
+    </label>
+</li>
+
+
+<div  ng-if="tuz_toggle == true"> 
+             
+    <div class="card animated fadeInLeft ">
+      <div class="item item-text-wrap carddikeybosluk">
+          <div class="bar bar-header bar-balanced">
+              <h1 class="title">FeCl<sub>3</sub>.6h<sub>2</sub>0 tuzu mikarı ve su mikarı </h1>
+        </div><br><br><br>
+   
+        
+        <div class="row row1">
+
+            <div class="col col-50"><h4 class="d_ort">Kaç gr çözelti hazırlamak istiyorsun ?</h4> </div>
+            <div class="col col3 col-10">gr</div>
+            <div class="col col-25"><input class="input3" type="number" ng-model="fe_tuz"></div>
+            <div class="col col-25">
+                <button class="button button-small button-positive" ng-click="lab_fe(fe_tuz)" 
+                ng-init="" ng-Disabled= "fe_tuz == null " >
+                Hesapla
+                </button>
+            </div>
+          </div>
+          <hr>
+          <div ng-if = "tuz_cvp_fe">
+          
+          <center>
+                <h3>
+                  <div style="color: black" ng-if="tuz_cvp_fe">
+                    <div class="animated fadeInLeft">
+                            {{tuz_cvp_fe}} gram  FeCl<sub>3</sub>.6h<sub>2</sub>0 tuzu tartınız
+                    </div>
+                    <div class="animated bounceInLeft">
+                        {{tuz_cvp_fe1}} ml su ekleyiniz 
+                </div>
+                  </div>
+                </h3>
+              </center>
+          <hr> 
+            </div>
+
+          
+                
+   
+                                    
+                                            
+              </div>          
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!--***************************************************************************************************************-->
+<li class="item item-toggle">
+    <h3>AKM Hesaplama </h3>
+    <label class="toggle toggle-positive">
+      <input type="checkbox" ng-model="lab_toggle1" ng-init="lab_toggle1=false">
+      <div class="track">
+        <div class="handle"></div>
+       </div>
+    </label>
+</li>
+
+<div  ng-if="lab_toggle1 == true">
+       
+    <div class="card animated fadeInLeft">
+           
+        <div class="item item-text-wrap carddikeybosluk">
+              
+          <div class="bar bar-header bar-balanced">
+                <h1 class="title">  AKM Hesaplama </h1>
+          </div><br><br><br>
+      
+         
+          <div class="col col1">
+          
+             
+                      <div class="row row1">
+                        <div class="col col-60"><h4 class="d_ort">Alınan numune mikari
+                        </h4> </div>
+                        <div class="col col3 col-10">ml</div>
+                        <div class="col col-30"> <input class="input3" type="number" ng-model="numune"></div>
+                      </div>
+                      <hr>
+                        <div class="row row1">
+                          <div class="col col-60"><h4 class="d_ort">Kap + filtre ağırlık
+                            </h4></div>
+                          <div class="col col3 col-10">gr</div>
+                          <div class="col col-30"><input class="input3" type="number" ng-model="dara"></div>
+                        </div>
+                        <hr>
+                        <div class="row row1">
+                            <div class="col col-60"><h4 class="d_ort">Etüv sonrası Kap + filtre ağırlık
+                              </h4></div>
+                            <div class="col col3 col-10">gr</div>
+                            <div class="col col-30"><input class="input3" type="number" ng-model="net"></div>
+                          </div>
+                          <hr>
+                      
+                 
+          
+                <button class="button button-full button-positive" ng-click="akm(numune,dara,net)" ng-disabled="numune==null || dara == null || net  == null">
+                Hesapla
+                </button>
+                    <div ng-if="akm_gr">
+                        <center>
+                            <h3>
+                              <div style="color: black" ng-if="akm_gr">
+                                <div class="animated bounceInLeft">
+                                        Çözeltide  {{akm_gr}}  gr/l  ({{akm_mgl}} mg/l)  AKM bulunmaktadır. 
+                                </div>
+                              </div>
+                            </h3>
+                          </center>
+                          <hr>
+                        </div>
+                      </div>           
+                  </div>
+              </div>
+          </div>
+       </div> 
+    </div>
+<!--****************************************************************************************************-->
+
+
+
 
 
 

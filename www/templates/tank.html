@@ -1,5 +1,5 @@
 <ion-view view-title="Standard Tank Hacim Hesabı">
-  <ion-content class="animated rollIn">
+  <ion-content class="animated fadeInDown">
 
 
 
@@ -15,7 +15,7 @@
 
 <div  ng-if="havuz == true" > 
 
- <div class="card animated fadeInLeft">
+ <div class="card">
    <div class="item item-text-wrap carddikeybosluk">
        <div class="bar bar-header bar-balanced">
            <h1 class="title">Havuz / Tank Boyutlandırma </h1>
@@ -512,7 +512,21 @@ Hesapla
 </div>
 
 
-<br><center><button class="button button-positive animated rollIn" ng-click = "showAlertcod()">Tank Tipi ve bekletme süreleri</button></center></br>
+<li class="item item-toggle">
+    <h3>Tank Tipi ve bekletme süreleri </h3>
+    <label class="toggle toggle-positive">
+      <input type="checkbox" ng-model="konikfotostd" ng-init="konikfotostd=false">
+      <div class="track">
+        <div class="handle"></div>
+       </div>
+    </label>
+</li>
+
+<div  ng-if = "konikfotostd == true">
+  <div class="item item-text-wrap animated fadeInLeft">
+    <img class="full-image custom"src="/img/konikstd.png" >
+  </div>
+</div>
 
 
 

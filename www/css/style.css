@@ -72,5 +72,11 @@
     padding-right: 0px;
     padding-left: 0px;
 }
-                            
+.sosyal{
+    bottom:0px;
+    position:fixed;
+}
+.sosyal_radius{
+    border-radius: 20px;
+}
 

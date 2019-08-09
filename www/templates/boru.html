@@ -1,5 +1,5 @@
 <ion-view view-title="Boru Delik Çap&Hız Hesabı">
-    <ion-content class="animated rollIn">
+    <ion-content class="animated fadeInDown">
     
 <!--**************************************************************************************************************************************-->  
         <li class="item item-toggle">
@@ -387,8 +387,23 @@
 
 </div>           
       
+<li class="item item-toggle">
+    <h3>Tank Tipi ve bekletme süreleri </h3>
+    <label class="toggle toggle-positive">
+      <input type="checkbox" ng-model="borufoto" ng-init="borufoto=false">
+      <div class="track">
+        <div class="handle"></div>
+       </div>
+    </label>
+</li>
+
+<div  ng-if = "borufoto == true">
+  <div class="item item-text-wrap animated fadeInLeft">
+    <img class="full-image custom"src="/img/boru.png" >
+  </div>
+</div>
         
-<br><center><button class="button button-positive animated rollIn" ng-click = "boru()">Tank Tipi ve bekletme süreleri</button></center></br>
+
 
 
 

@@ -1,5 +1,5 @@
 <ion-view view-title="Konik Tank" class="deneme">
-  <ion-content class="animated rollIn">
+  <ion-content class="animated fadeInDown">
     
 
 <li class="item item-toggle">
@@ -1221,7 +1221,24 @@ Hesapla
     </div>
 </div>
 
-<br><center><button class="button button-positive animated rollIn" ng-click = "konik()">Tank Tipi ve bekletme süreleri</button></center></br>
+
+<li class="item item-toggle">
+    <h3>Tank Tipi ve bekletme süreleri </h3>
+    <label class="toggle toggle-positive">
+      <input type="checkbox" ng-model="konikfoto" ng-init="konikfoto=false">
+      <div class="track">
+        <div class="handle"></div>
+       </div>
+    </label>
+</li>
+
+<div  ng-if = "konikfoto == true">
+  <div class="item item-text-wrap animated fadeInLeft">
+    <img class="full-image custom"src="/img/konik.png" >
+  </div>
+</div>
+
+
 
   </ion-content>
 </ion-view>

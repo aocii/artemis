@@ -362,34 +362,17 @@ $scope.pl_hes= function(pl) {
   pl_cvp = pl*0.3
   $scope.pl_cvp = Number(pl_cvp).toFixed(2)
   }
-
-
-//$scope.deneme = function(){
-
-  //var xhttp = new XMLHttpRequest();
-  //xhttp.onreadystatechange = function() {
-    //if (this.readyState == 4 && this.status == 200) {     
-      //$scope.sonuc = this.responseText
-    //}
-  //};
-  //xhttp.open("GET", "http://192.168.10.198:3002/", true);
-  //xhttp.send();
-//}
-
-
-$scope.boru = function() {
-  var alertPopup = $ionicPopup.alert({
-    title: 'Boru & Çap:' ,
-    template: '<img class="full-image custom"src="/img/boru.png"> '
-    
-})}
-
-$scope.konik = function() {
-  var alertPopup = $ionicPopup.alert({
-    title: 'Boru & Çap:' ,
-    template: '<img class="full-image custom"src="/img/konik.png"> '
-    
-})}
+$scope.akm = function(numune,dara,net){
+  akm_cvp = (net-dara)/numune
+  $scope.akm_gr = Number(akm_cvp*1000).toFixed(2)
+  $scope.akm_mgl = Number(akm_cvp*1000*1000).toFixed(2)
+}
+$scope.lab_fe = function (fe_tuz){
+  Demir = ((fe_tuz * 40) / 100)
+  tuz = ((Demir * 270.29) / 162.2)
+  $scope.tuz_cvp_fe = Number(tuz).toFixed(2)
+  $scope.tuz_cvp_fe1 = Number(fe_tuz - tuz).toFixed(2)
+}
 
 $scope.y = function (c,d) {
   xii = Number(((c-d)/c)*100).toFixed(2)
@@ -421,8 +404,8 @@ if(xiii >100 || xiii < 0 ) {
     { title: 'Tesis Verim', adres: 'verim', id: 0 },
     { title: 'Standart Tank Hacim Hesabı ', adres: 'tank', id: 1 },
     { title: 'Konik Tabanlı Tank Hacim Hesabı', adres:'koniktank', id: 2 },
-    { title: 'Boru Delik Çap&Hız Hesabı', adres:'boru', id: 3 },
-    { title: 'Labratuvar Hesapları',adres: 'lab', id: 4 },
+    { title: 'Boru Delik Çapı ve Hız Hesabı', adres:'boru', id: 3 },
+    { title: 'Laboratuvar Hesapları',adres: 'lab', id: 4 },
     { title: 'Biz Kimiz?',adres: 'tanitim', id: 5 }
   ];
 })
